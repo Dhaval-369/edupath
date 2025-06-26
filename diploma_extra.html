@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITI Courses After 10th</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --primary-hover: #0069d9;
+      --secondary-color: #6c757d;
+      --light-bg: #f8f9fa;
+      --border-color: #dee2e6;
+      --text-color: #212529;
+      --text-light: #6c757d;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    
+    h1, h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin: 1.5rem 0;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    h1::after, h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+    
+    .search-container {
+      margin: 2rem auto;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    #searchInput {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+      padding-left: 2.5rem;
+      transition: all 0.3s;
+    }
+    
+    #searchInput:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    
+    .search-container i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--secondary-color);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--light-bg);
+    }
+    
+    tr:hover {
+      background-color: rgba(0,123,255,.1);
+      cursor: pointer;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      display: none;
+    }
+    
+    .highlight {
+      background-color: #ffeb3b;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    
+    /* Course Details Row Styles */
+    .course-details-row {
+      background-color: #f9f9f9;
+    }
+    
+    .course-details {
+      padding: 15px 20px;
+      line-height: 1.8;
+    }
+    
+    .course-details p {
+      margin-bottom: 10px;
+    }
+    
+    .course-details strong {
+      display: inline-block;
+      min-width: 160px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    
+    .career-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    
+    .career-item i {
+      margin-right: 8px;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      h1, h2 {
+        font-size: 1.4rem;
+      }
+      
+      th, td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .course-details strong {
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>ITI Courses After 10th</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Search Box -->
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search for courses...">
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results">
+      <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+      <p>No matching courses found. Try a different search term.</p>
+    </div>
+
+    <h2>Engineering & Technology Courses</h2>
+    <table class="course-table" id="engineeringTable">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Field</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="toggleCourseDetails(this, '🛠️ Diploma in Mechanical Engineering – Ahmedabad Overview', 'Engineering', '3 years (6 semesters)', '₹2,000 – ₹5,000 (Govt), ₹20,000 – ₹60,000 (Private)', 'Government & Private Institutes', '10th pass with Science and Mathematics preferred', ['Mechanical Design Engineer', 'Production Supervisor', 'Maintenance Engineer', 'Quality Control Inspector', 'CNC Machine Operator'])">
+          <td>Diploma in Mechanical Engineering</td>
+          <td>Engineering</td>
+        </tr>
+        
+        <tr onclick="toggleCourseDetails(this, '🏗️ Diploma in Civil Engineering', 'Engineering', '3 years (6 semesters)', '₹2,500 – ₹6,000 (Govt), ₹15,000 – ₹50,000 (Private)', 'Government & Private Institutes', '10th pass with Science and Mathematics preferred', ['Site Supervisor', 'Draftsman', 'Surveyor', 'Construction Inspector', 'Estimator'])">
+          <td>Diploma in Civil Engineering</td>
+          <td>Engineering</td>
+        </tr>
+
+        <tr onclick="toggleCourseDetails(this, '⚡ Diploma in Electrical Engineering', 'Engineering', '3 years (6 semesters)', '₹2,000 – ₹5,000 (Govt), ₹18,000 – ₹45,000 (Private)', 'Government & Private Institutes', '10th pass with Science and Mathematics preferred', ['Electrician', 'Wiring Technician', 'Maintenance Technician', 'Electrical Supervisor', 'Power Plant Operator'])">
+          <td>Diploma in Electrical Engineering</td>
+          <td>Engineering</td>
+        </tr>
+
+        <tr onclick="toggleCourseDetails(this, '💻 Diploma in Computer Engineering', 'Engineering / IT', '3 years (6 semesters)', '₹25,000 – ₹60,000 (Private Institutes)', 'Private Technical Institutes', '10th pass with Mathematics preferred', ['Hardware Engineer', 'Network Assistant', 'Software Tester', 'System Administrator', 'Technical Support'])">
+          <td>Diploma in Computer Engineering</td>
+          <td>Engineering / IT</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Information Technology</h2>
+    <table class="course-table">
+      <thead>
+        <tr><th>Course Name</th><th>Field</th></tr>
+      </thead>
+      <tbody>
+        <tr onclick="toggleCourseDetails(this, '💾 Diploma in Information Technology', 'IT', '3 years (6 semesters)', '₹20,000 – ₹50,000 (Private Institutes)', 'Private Technical Institutes', '10th pass', ['IT Support Specialist', 'Network Technician', 'System Administrator', 'Database Assistant', 'Technical Support'])">
+          <td>Diploma in Information Technology</td>
+          <td>IT</td>
+        </tr>
+        <tr onclick="toggleCourseDetails(this, '🔌 Diploma in Computer Science', 'IT', '3 years (6 semesters)', '₹22,000 – ₹55,000 (Private Institutes)', 'Private Technical Institutes', '10th pass with Mathematics preferred', ['Programmer', 'Database Assistant', 'Web Developer', 'Software Tester', 'System Analyst'])">
+          <td>Diploma in Computer Science</td>
+          <td>IT</td>
+        </tr>
+        <tr onclick="toggleCourseDetails(this, '🌐 Diploma in Web Designing & Development', 'IT', '1 year (2 semesters)', '₹15,000 – ₹35,000 (Private Institutes)', 'Private Technical Institutes', '10th pass', ['Web Designer', 'Front-end Developer', 'UI Developer', 'Webmaster', 'Content Manager'])">
+          <td>Diploma in Web Designing & Development</td>
+          <td>IT</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Healthcare & Paramedical</h2>
+    <table class="course-table">
+      <thead>
+        <tr><th>Course Name</th><th>Field</th></tr>
+      </thead>
+      <tbody>
+        <tr onclick="toggleCourseDetails(this, '🧪 Diploma in Medical Laboratory Technology (DMLT)', 'Paramedical', '2 years (4 semesters)', '₹30,000 – ₹70,000 (Private Institutes)', 'Medical Colleges and Private Institutes', '10th pass with Science', ['Lab Technician', 'Pathology Assistant', 'Research Assistant', 'Lab Supervisor', 'Phlebotomist'])">
+          <td>Diploma in Medical Laboratory Technology (DMLT)</td>
+          <td>Paramedical</td>
+        </tr>
+        <tr onclick="toggleCourseDetails(this, '📷 Diploma in Radiology', 'Paramedical', '2 years (4 semesters)', '₹35,000 – ₹80,000 (Private Institutes)', 'Medical Colleges and Private Institutes', '10th pass with Science', ['Radiology Technician', 'X-Ray Technician', 'MRI Technician', 'CT Scan Technician', 'Ultrasound Technician'])">
+          <td>Diploma in Radiology</td>
+          <td>Paramedical</td>
+        </tr>
+        <tr onclick="toggleCourseDetails(this, '💊 Diploma in Nursing', 'Paramedical', '3 years (6 semesters)', '₹40,000 – ₹90,000 (Private Institutes)', 'Nursing Schools and Medical Colleges', '10th pass with Science', ['Staff Nurse', 'Nursing Assistant', 'Ward Nurse', 'ICU Nurse', 'Community Health Nurse'])">
+          <td>Diploma in Nursing</td>
+          <td>Paramedical</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- More course tables can be added here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        let anyVisible = false;
+        
+        // Reset all highlights first
+        document.querySelectorAll('.highlight').forEach(el => {
+          const parent = el.parentNode;
+          parent.replaceChild(document.createTextNode(el.textContent), el);
+          parent.normalize();
+        });
+        
+        // Hide all tables and headings first
+        document.querySelectorAll('h2, table').forEach(el => {
+          el.style.display = 'none';
+        });
+        
+        if (searchTerm.trim() === '') {
+          // Show all if search is empty
+          document.querySelectorAll('h2, table').forEach(el => {
+            el.style.display = '';
+          });
+          document.querySelector('.no-results').style.display = 'none';
+          return;
+        }
+        
+        // Search through each table
+        document.querySelectorAll('.course-table tbody tr:not(.course-details-row)').forEach(row => {
+          const cells = row.querySelectorAll('td');
+          let rowMatch = false;
+          
+          cells.forEach(cell => {
+            const text = cell.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+              rowMatch = true;
+              
+              // Highlight matching text
+              const regex = new RegExp(searchTerm, 'gi');
+              const newText = cell.textContent.replace(regex, match => 
+                `<span class="highlight">${match}</span>`
+              );
+              cell.innerHTML = newText;
+            }
+          });
+          
+          if (rowMatch) {
+            row.style.display = '';
+            anyVisible = true;
+            
+            // Show the parent table and heading
+            const table = row.closest('table');
+            const heading = table.previousElementSibling;
+            
+            table.style.display = '';
+            heading.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+        
+        document.querySelector('.no-results').style.display = anyVisible ? 'none' : 'block';
+      });
+    });
+    
+    function toggleCourseDetails(row, title, field, duration, fees, institutes, eligibility, careers) {
+      // Close any open detail rows first
+      const existingDetails = document.querySelectorAll('.course-details-row');
+      existingDetails.forEach(detail => detail.remove());
+      
+      // If the next row is already open (clicked twice), just return
+      const nextRow = row.nextElementSibling;
+      if (nextRow && nextRow.classList.contains('course-details-row')) {
+        return;
+      }
+      
+      // Create new row for course details
+      const detailsRow = document.createElement('tr');
+      detailsRow.className = 'course-details-row';
+      
+      const detailsCell = document.createElement('td');
+      detailsCell.colSpan = 2;
+      
+      // Format careers list with icons
+      let careersList = careers.map(career => `
+        <div class="career-item">
+          <i class="fas fa-chevron-right"></i>
+          ${career}
+        </div>
+      `).join('');
+      
+      detailsCell.innerHTML = `
+        <div class="course-details">
+          <p><strong>Title:</strong> ${title}</p>
+          <p><strong>Field:</strong> ${field}</p>
+          <p><strong>Duration:</strong> ${duration}</p>
+          <p><strong>Fees:</strong> ${fees}</p>
+          <p><strong>Institutes:</strong> ${institutes}</p>
+          <p><strong>Eligibility:</strong> ${eligibility}</p>
+          <p><strong>Career Opportunities:</strong></p>
+          ${careersList}
+          <p><strong>Further Studies:</strong> Can pursue B.E./B.Tech or specialized certifications</p>
+        </div>
+      `;
+      
+      detailsRow.appendChild(detailsCell);
+      
+      // Insert after the clicked row
+      row.parentNode.insertBefore(detailsRow, row.nextSibling);
+      
+      // Scroll to show the details if they're off-screen
+      detailsRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>

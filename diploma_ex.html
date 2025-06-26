@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITI Courses After 10th</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --primary-hover: #0069d9;
+      --secondary-color: #6c757d;
+      --light-bg: #f8f9fa;
+      --border-color: #dee2e6;
+      --text-color: #212529;
+      --text-light: #6c757d;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+    
+    .search-container {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    #searchInput {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+      padding-left: 2.5rem;
+      transition: all 0.3s;
+    }
+    
+    #searchInput:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    
+    .search-container i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--secondary-color);
+    }
+    
+    .section {
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: white;
+      transition: transform 0.3s;
+    }
+    
+    .section:hover {
+      transform: translateY(-3px);
+    }
+    
+    .section-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+    }
+    
+    .section-header:hover {
+      background-color: var(--primary-hover);
+    }
+    
+    .section-header i {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+    
+    .section-header .arrow {
+      transition: transform 0.3s;
+    }
+    
+    .section-header.active .arrow {
+      transform: rotate(90deg);
+    }
+    
+    .content {
+      display: none;
+      padding: 0;
+    }
+    
+    .content.active {
+      display: block;
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    .trade-item {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: background-color 0.2s;
+      position: relative;
+    }
+    
+    .trade-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trade-item:hover {
+      background-color: var(--light-bg);
+    }
+    
+    .trade-item.active {
+      background-color: var(--light-bg);
+    }
+    
+    .trade-name {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+    }
+    
+    .trade-name i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      min-width: 1.5rem;
+      text-align: center;
+    }
+    
+    .trade-details {
+      display: none;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      background-color: var(--light-bg);
+      border-radius: 6px;
+      border-left: 4px solid var(--primary-color);
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .detail-item {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .detail-item i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      width: 1.5rem;
+      text-align: center;
+      padding-top: 0.2rem;
+    }
+    
+    .detail-content {
+      flex: 1;
+    }
+    
+    .detail-label {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+    
+    .career-list {
+      margin-top: 0.5rem;
+    }
+    
+    .career-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .career-item i {
+      margin-right: 0.5rem;
+      color: var(--primary-color);
+      font-size: 0.8rem;
+    }
+    
+    
+    .institute-list {
+      margin-top: 0.5rem;
+    }
+    
+    .institute {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .institute:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .institute-name {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.3rem;
+    }
+    
+    .institute-address, .institute-phone {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+      }
+      
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .section-header {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+      }
+      
+      .trade-item {
+        padding: 0.8rem 1rem;
+      }
+      
+      .trade-details {
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>ITI Courses After 10th</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Search Box -->
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search for trades...">
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results">
+      <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+      <p>No matching trades found. Try a different search term.</p>
+    </div>
+
+    <!-- Engineering & Technology Courses Section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div><i class="fas fa-cogs"></i> Engineering & Technology Courses</div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div class="content">
+        <ul>
+          <!-- Diploma in Mechanical Engineering -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Mechanical Engineering">
+            <div class="trade-name"><i class="fas fa-wrench"></i> Diploma in Mechanical Engineering</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹2,000 – ₹5,000 (Govt), ₹20,000 – ₹60,000 (Private)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Government & Private Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Science and Mathematics preferred
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Mechanical Design Engineer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Production Supervisor</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Maintenance Engineer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Quality Control Inspector</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> CNC Machine Operator</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.E./B.Tech or specialized certifications
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Civil Engineering -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Civil Engineering">
+            <div class="trade-name"><i class="fas fa-building"></i> Diploma in Civil Engineering</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹2,500 – ₹6,000 (Govt), ₹15,000 – ₹50,000 (Private)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Government & Private Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Science and Mathematics preferred
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Site Supervisor</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Draftsman</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Surveyor</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Construction Inspector</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Estimator</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.E./B.Tech or specialized certifications
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Electrical Engineering -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Electrical Engineering">
+            <div class="trade-name"><i class="fas fa-bolt"></i> Diploma in Electrical Engineering</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹2,000 – ₹5,000 (Govt), ₹18,000 – ₹45,000 (Private)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Government & Private Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Science and Mathematics preferred
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Electrician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Wiring Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Maintenance Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Electrical Supervisor</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Power Plant Operator</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.E./B.Tech or specialized certifications
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Computer Engineering -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Computer Engineering">
+            <div class="trade-name"><i class="fas fa-laptop"></i> Diploma in Computer Engineering</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹25,000 – ₹60,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Private Technical Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Mathematics preferred
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Hardware Engineer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Network Assistant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Software Tester</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> System Administrator</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Technical Support</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.E./B.Tech or specialized certifications
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Information Technology Section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div><i class="fas fa-laptop-code"></i> Information Technology</div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div class="content">
+        <ul>
+          <!-- Diploma in Information Technology -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Information Technology">
+            <div class="trade-name"><i class="fas fa-database"></i> Diploma in Information Technology</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹20,000 – ₹50,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Private Technical Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> IT Support Specialist</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Network Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> System Administrator</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Database Assistant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Technical Support</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.E./B.Tech or specialized certifications
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Computer Science -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Computer Science">
+            <div class="trade-name"><i class="fas fa-code"></i> Diploma in Computer Science</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹22,000 – ₹55,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Private Technical Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Mathematics preferred
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Programmer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Database Assistant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Web Developer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Software Tester</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> System Analyst</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.E./B.Tech or specialized certifications
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Web Designing & Development -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Web Designing & Development">
+            <div class="trade-name"><i class="fas fa-globe"></i> Diploma in Web Designing & Development</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 year (2 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹15,000 – ₹35,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Private Technical Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Web Designer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Front-end Developer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> UI Developer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Webmaster</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Content Manager</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue advanced certifications or degree programs
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Healthcare & Paramedical Section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div><i class="fas fa-medkit"></i> Healthcare & Paramedical</div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div class="content">
+        <ul>
+          <!-- Diploma in Medical Laboratory Technology (DMLT) -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Medical Laboratory Technology (DMLT)">
+            <div class="trade-name"><i class="fas fa-microscope"></i> Diploma in Medical Laboratory Technology (DMLT)</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  2 years (4 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹30,000 – ₹70,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Medical Colleges and Private Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Science
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Lab Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Pathology Assistant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Research Assistant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Lab Supervisor</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Phlebotomist</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.Sc in Medical Lab Technology or related fields
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Radiology -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Radiology">
+            <div class="trade-name"><i class="fas fa-x-ray"></i> Diploma in Radiology</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  2 years (4 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹35,000 – ₹80,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Medical Colleges and Private Institutes
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Science
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Radiology Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> X-Ray Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> MRI Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> CT Scan Technician</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Ultrasound Technician</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.Sc in Radiology or related fields
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Nursing -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Nursing">
+            <div class="trade-name"><i class="fas fa-user-nurse"></i> Diploma in Nursing</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  3 years (6 semesters)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹40,000 – ₹90,000 (Private Institutes)
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Institutes:</span>
+                  Nursing Schools and Medical Colleges
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-user-graduate"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Eligibility:</span>
+                  10th pass with Science
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Staff Nurse</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Nursing Assistant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Ward Nurse</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> ICU Nurse</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Community Health Nurse</div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Further Studies:</span>
+                  Can pursue B.Sc Nursing or Post Basic B.Sc Nursing
+                </div>
+              </div>
+            </div>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+      <!-- Aviation & Hospitality Section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div><i class="fas fa-plane"></i> Aviation & Hospitality</div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div class="content">
+        <ul>
+          <!-- Diploma in Aviation Management -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Aviation Management">
+            <div class="trade-name"><i class="fas fa-plane-departure"></i> Diploma in Aviation Management</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  6 months to 1 year
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹50,000 – ₹1,20,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Flywheel Aviation Academy, Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://falconwingsaviation.com" target="_blank">falconwingsaviation.com</a></div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">My Sky Fly Institute, Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://myskyfly.in" target="_blank">myskyfly.in</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Airport Manager</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Airline Operations Executive</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Ground Staff Coordinator</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Cabin Crew & Hospitality -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Cabin Crew & Hospitality">
+            <div class="trade-name"><i class="fas fa-user-tie"></i> Diploma in Cabin Crew & Hospitality</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  6 months to 1 year
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹60,000 – ₹1,50,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Bright Future Aviation Institute, Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://brightfutureaviation.com" target="_blank">brightfutureaviation.com</a></div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Ambiance Institute of Air Hostess Training, Ahmedabad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Cabin Crew Member</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Hospitality Executive</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Customer Service Agent</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Travel & Tourism -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Travel & Tourism">
+            <div class="trade-name"><i class="fas fa-globe-americas"></i> Diploma in Travel & Tourism</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 year
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹40,000 – ₹1,00,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">GoalsMate Academy, Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://goalsmate.com" target="_blank">goalsmate.com</a></div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Ambiance Institute of Air Hostess Training, Ahmedabad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Travel Consultant</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Tour Operator</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Travel Agency Manager</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Hotel Management -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Hotel Management">
+            <div class="trade-name"><i class="fas fa-hotel"></i> Diploma in Hotel Management</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 to 2 years
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹50,000 – ₹1,50,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Institute of Hotel Management, Ahmedabad</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Jindal School of Hotel Management, Ahmedabad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Hotel Manager</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Front Office Executive</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Food and Beverage Manager</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Design & Creative Arts Section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div><i class="fas fa-palette"></i> Design & Creative Arts</div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div class="content">
+        <ul>
+          <!-- Diploma in Fashion Design -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Fashion Design">
+            <div class="trade-name"><i class="fas fa-tshirt"></i> Diploma in Fashion Design</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 year
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹60,000 – ₹1,20,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">BRDS (Bhanwar Rathore Design Studio), Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://rathoreuniversity.com" target="_blank">rathoreuniversity.com</a></div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">INIFD Ahmedabad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Fashion Designer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Stylist</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Textile Designer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Interior Design -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Interior Design">
+            <div class="trade-name"><i class="fas fa-couch"></i> Diploma in Interior Design</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 year
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹50,000 – ₹1,00,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">INIFD Ahmedabad</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">BRDS, Ahmedabad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Interior Designer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Space Planner</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Exhibition Designer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Graphic Design -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Graphic Design">
+            <div class="trade-name"><i class="fas fa-paint-brush"></i> Diploma in Graphic Design</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  6 months to 1 year
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹40,000 – ₹80,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">ICEI (Institute of Computer Education and Information), Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://iceiindia.com" target="_blank">iceiindia.com</a></div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">CDAC Ahmedabad</div>
+                      <div class="institute-website">Website: <a href="https://cdacahmedabad.com" target="_blank">cdacahmedabad.com</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Graphic Designer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Visualizer</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> UI/UX Designer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Diploma in Animation & VFX -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Diploma in Animation & VFX">
+            <div class="trade-name"><i class="fas fa-film"></i> Diploma in Animation & VFX</div>
+            <div class="trade-details">
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 to 2 years
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹70,000 – ₹1,50,000
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">MAAC (Maya Academy of Advanced Cinematics), Ahmedabad</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  <div class="career-list">
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Animator</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> VFX Artist</div>
+                    <div class="career-item"><i class="fas fa-chevron-right"></i> Motion Graphics Designer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+ <script>
+  // Section toggle (accordion)
+  function toggleSection(element) {
+    element.classList.toggle('active');
+    const content = element.nextElementSibling;
+    content.classList.toggle('active');
+  }
+
+  // Trade details toggle
+  function showTradeDetails(item) {
+    // Close all other open trades
+    const allTrades = document.querySelectorAll('.trade-item');
+    allTrades.forEach(trade => {
+      if (trade !== item) {
+        trade.classList.remove('active');
+        trade.querySelector('.trade-details').style.display = 'none';
+      }
+    });
+
+    // Toggle current trade
+    const details = item.querySelector('.trade-details');
+    const isVisible = details.style.display === 'block';
+    item.classList.toggle('active');
+    details.style.display = isVisible ? 'none' : 'block';
+  }
+
+  // Updated Search filtering
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    let anyVisible = false;
+
+    // Loop through each section
+    document.querySelectorAll('.section').forEach(section => {
+      let sectionHasMatch = false;
+
+      // Get all trade-items in this section
+      const trades = section.querySelectorAll('.trade-item');
+
+      trades.forEach(trade => {
+        const tradeName = trade.getAttribute('data-trade').toLowerCase();
+        if (tradeName.includes(searchTerm)) {
+          trade.style.display = '';
+          sectionHasMatch = true;
+          anyVisible = true;
+        } else {
+          trade.style.display = 'none';
+        }
+      });
+
+      // Show/hide the entire section based on whether any trade matched
+      section.style.display = sectionHasMatch ? '' : 'none';
+    });
+
+    document.querySelector('.no-results').style.display = anyVisible ? 'none' : 'block';
+  });
+</script>
+
+</body>
+</html>

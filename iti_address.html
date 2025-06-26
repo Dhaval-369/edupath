@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITI Courses After 10th</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --primary-hover: #0069d9;
+      --secondary-color: #6c757d;
+      --light-bg: #f8f9fa;
+      --border-color: #dee2e6;
+      --text-color: #212529;
+      --text-light: #6c757d;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+    
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+    
+    .search-container {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    #searchInput {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+      padding-left: 2.5rem;
+      transition: all 0.3s;
+    }
+    
+     #searchInput:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    
+    .search-container i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--secondary-color);
+    }
+    
+    .section {
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: white;
+      transition: transform 0.3s;
+    }
+    
+    .section:hover {
+      transform: translateY(-3px);
+    }
+    
+    .section-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+    }
+    
+    .section-header:hover {
+      background-color: var(--primary-hover);
+    }
+    
+    .section-header i {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+    
+    .section-header .arrow {
+      transition: transform 0.3s;
+    }
+    
+    .section-header.active .arrow {
+      transform: rotate(90deg);
+    }
+    
+    .content {
+      display: none;
+      padding: 0;
+    }
+    
+    .content.active {
+      display: block;
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    
+    .trade-item {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: background-color 0.2s;
+      position: relative;
+    }
+    
+    .trade-item:last-child {
+      border-bottom: none;
+    }
+    
+    .trade-item:hover {
+      background-color: var(--light-bg);
+    }
+    
+    .trade-item.active {
+      background-color: var(--light-bg);
+    }
+    
+    .trade-name {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+    }
+    
+    .trade-name i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      min-width: 1.5rem;
+      text-align: center;
+    }
+    
+    .trade-details {
+      display: none;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      background-color: var(--light-bg);
+      border-radius: 6px;
+      border-left: 4px solid var(--primary-color);
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .detail-item {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .detail-item i {
+      margin-right: 0.8rem;
+      color: var(--primary-color);
+      width: 1.5rem;
+      text-align: center;
+      padding-top: 0.2rem;
+    }
+    
+    .detail-content {
+      flex: 1;
+    }
+    
+    .detail-label {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+    
+    .institute-list {
+      margin-top: 0.5rem;
+    }
+    
+    .institute {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .institute:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .institute-name {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.3rem;
+    }
+    
+    .institute-address, .institute-phone {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+      }
+      
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .section-header {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+      }
+      
+      .trade-item {
+        padding: 0.8rem 1rem;
+      }
+      
+      .trade-details {
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>ITI Courses After 10th</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Search Box -->
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search for trades...">
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results">
+      <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+      <p>No matching trades found. Try a different search term.</p>
+    </div>
+
+    <!-- Mechanical / Engineering Trades Section -->
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <div><i class="fas fa-cogs"></i> Mechanical / Engineering Trades</div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </div>
+      <div class="content">
+        <ul>
+            <!-- Trade: Fitter -->
+            <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Fitter">
+              <div class="trade-name"><i class="fas fa-wrench"></i></i> Fitter</div>
+              <div class="trade-details">
+                <!-- Fee -->
+                <div class="detail-item">
+                  <i class="fas fa-tools"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Fees:</span>
+                    ₹5,000 - ₹15,000 (Govt) <br> ₹15,000 - ₹30,000 (Private)
+                  </div>
+                </div>
+                <!-- Duration -->
+                <div class="detail-item">
+                  <i class="fas fa-clock"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Duration:</span>
+                    1-2 years
+                  </div>
+                </div>
+                <!-- Nearby Institute -->
+                <div class="detail-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Nearby Institute:</span>
+                    <div class="institute">
+                      <div class="institute-name">Government ITI Ahmedabad</div>
+                      <div class="institute-address">Navrangpura, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079-26300000</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Other Institutes -->
+                <div class="detail-item">
+                  <i class="fas fa-university"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Other Institutes:</span>
+                    <div class="institute-list">
+                      <div class="institute">
+                        <div class="institute-name">Private ITI College</div>
+                        <div class="institute-address">Satellite Road, Ahmedabad</div>
+                        <div class="institute-phone">Phone: 079-26555555</div>
+                      </div>
+                      <div class="institute">
+                        <div class="institute-name">Skill Development Center</div>
+                        <div class="institute-address">Maninagar, Ahmedabad</div>
+                        <div class="institute-phone">Phone: 079-25444444</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Career Opportunities -->
+                <div class="detail-item">
+                  <i class="fas fa-briefcase"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Career Opportunities:</span>
+                    Manufacturing, Automobile, Maintenance
+                  </div>
+                </div>
+              </div>
+            </li>
+
+
+
+
+            <!-- Trade:  Machinist -->
+            <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Machinist">
+              <div class="trade-name"><i class="fas fa-cogs"></i></i> Machinist </div>
+              <div class="trade-details">
+                <!-- Fee -->
+                <div class="detail-item">
+                  <i class="fas fa-rupee-sign"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Fees:</span>
+                    ₹4,000 - ₹8,000 (Govt) <br> ₹15,000 - ₹35,000 (Private)
+                  </div>
+                </div>
+                <!-- Duration -->
+                <div class="detail-item">
+                  <i class="fas fa-clock"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Duration:</span>
+                    2 years (4 semesters)
+                  </div>
+                </div>
+                <!-- Nearby Institute -->
+                <div class="detail-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Nearby Institute:</span>
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Kubernagar</div>
+                      <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                      <div class="institute-phone">Phone: (079) 22923559</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Other Institutes -->
+                <div class="detail-item">
+                  <i class="fas fa-university"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Other Institutes:</span>
+                    <div class="institute-list">
+                      <div class="institute">
+                        <div class="institute-name">Government ITI, Sarkhej</div>
+                        <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                        <div class="institute-phone">Phone: (079) 26823697</div>
+                        <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                        <div class="institute-fees">Approx Fees: ₹5,000 - ₹8,000/year</div>
+                      </div>
+                      <div class="institute">
+                        <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                        <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                        <div class="institute-phone">Phone: 079 2281 2287</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Career Opportunities -->
+                <div class="detail-item">
+                  <i class="fas fa-briefcase"></i>
+                  <div class="detail-content">
+                    <span class="detail-label">Career Opportunities:</span>
+                    CNC Programmer,Tool & Die Maker ,Machine Shop Supervisor, Quality Control Inspector
+                  </div>
+                </div>
+              </div>
+            </li>
+
+
+
+            
+    <!-- Trade: Tool & Die Maker -->
+    <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Tool & Die Maker">
+      <div class="trade-name"><i class="fas fa-tools"></i> Tool & Die Maker</div>
+      <div class="trade-details">
+        <!-- Fee -->
+        <div class="detail-item">
+          <i class="fas fa-rupee-sign"></i>
+          <div class="detail-content">
+            <span class="detail-label">Fees:</span>
+            ₹6,000 - ₹10,000 (Govt) <br> ₹20,000 - ₹40,000 (Private)
+          </div>
+        </div>
+        <!-- Duration -->
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <div class="detail-content">
+            <span class="detail-label">Duration:</span>
+            2 years (4 semesters)
+          </div>
+        </div>
+        <!-- Nearby Institute -->
+        <div class="detail-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="detail-content">
+            <span class="detail-label">Nearby Institute:</span>
+            <div class="institute">
+              <div class="institute-name"> Govt. ITI Kubernagar</div>
+              <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+              <div class="institute-phone">Phone: (079) 22923559</div>
+              <div class="institute-fees"> ₹6,000/year </div>
+            </div>
+          </div>
+        </div>
+        <!-- Other Institutes -->
+        <div class="detail-item">
+          <i class="fas fa-university"></i>
+          <div class="detail-content">
+            <span class="detail-label">Other Institutes:</span>
+            <div class="institute-list">
+              <div class="institute">
+                <div class="institute-name">Government ITI, Sarkhej</div>
+                <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                <div class="institute-phone">Phone: (079) 26823697</div>
+                <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                <div class="institute-fees">Approx Fees: ₹5,000 - ₹8,000/year</div>
+              </div>
+      
+        <!-- Career Opportunities -->
+        <div class="detail-item">
+          <i class="fas fa-briefcase"></i>
+          <div class="detail-content">
+            <span class="detail-label">Career Opportunities:</span>
+            Tool & Die Maker , Mold Designer , Die Casting Supervisor
+          </div>
+        </div>
+      </div>
+    </li>
+
+      <!-- Trade:  Mechanic Motor Vehicle -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade=" Mechanic Motor Vehicle">
+        <div class="trade-name"><i class="fas fa-car"></i> Mechanic Motor Vehicle</div>
+        <div class="trade-details">
+          <!-- Fee -->
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹8,000 (Govt) <br> ₹20,000 - ₹40,000 (Private)
+            </div>
+          </div>
+          <!-- Duration -->
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years (4 semesters)
+            </div>
+          </div>
+          <!-- Nearby Institute -->
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="detail-content">
+              <span class="detail-label">Nearby Institute:</span>
+              <div class="institute">
+                <div class="institute-name"> Govt. ITI Kubernagar</div>
+                <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                <div class="institute-phone">Phone: (079) 22923559</div>
+                <div class="institute-fees"> ₹6,000/year </div>
+              </div>
+            </div>
+          </div>
+          <!-- Other Institutes -->
+          <div class="detail-item">
+            <i class="fas fa-university"></i>
+            <div class="detail-content">
+              <span class="detail-label">Other Institutes:</span>
+              <div class="institute-list">
+                <div class="institute">
+                  <div class="institute-name">Government ITI, Sarkhej</div>
+                  <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                  <div class="institute-phone">Phone: (079) 26823697</div>
+                  <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                  <div class="institute-fees">Approx Fees: ₹5,000 - ₹8,000/year</div>
+                </div>
+                <div class="institute">
+                  <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                  <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                  <div class="institute-phone">Phone: 079 2281 2287</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Career Opportunities -->
+          <div class="detail-item">
+            <i class="fas fa-briefcase"></i>
+            <div class="detail-content">
+              <span class="detail-label">Career Opportunities:</span>
+              Automobile Technician , Diagnostic Specialist , Workshop Supervisor
+            </div>
+          </div>
+        </div>
+      </li>
+      <!-- Trade: Mechanic Diese -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="  Mechanic Diese ">
+        <div class="trade-name"><i class="fas fa-truck"></i> Mechanic Diesel</div>
+        <div class="trade-details">
+          <!-- Fee -->
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹6,000 (Govt) <br> ₹20,000 - ₹40,000 (Private)
+            </div>
+          </div>
+          <!-- Duration -->
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 years (2 semesters)
+            </div>
+          </div>
+          <!-- Nearby Institute -->
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="detail-content">
+              <span class="detail-label">Nearby Institute:</span>
+              <div class="institute">
+                <div class="institute-name">Govt. ITI Kubernagar</div>
+                <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                <div class="institute-phone">Phone: (079) 22923559</div>
+                <div class="institute-fees"> ₹4,500/year </div>
+              </div>
+            </div>
+          </div>
+          <!-- Other Institutes -->
+          <div class="detail-item">
+            <i class="fas fa-university"></i>
+            <div class="detail-content">
+              <span class="detail-label">Other Institutes:</span>
+              <div class="institute-list">
+                <div class="institute">
+                  <div class="institute-name">Government ITI, Sarkhej</div>
+                  <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                  <div class="institute-phone">Phone: (079) 26823697</div>
+                  <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                  <div class="institute-fees">Approx Fees: ₹4,000 - ₹6,000/year</div>
+                </div>
+                <div class="institute">
+                  <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                  <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                  <div class="institute-phone">Phone: 079 2281 2287</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Career Opportunities -->
+          <div class="detail-item">
+            <i class="fas fa-briefcase"></i>
+            <div class="detail-content">
+              <span class="detail-label">Career Opportunities:</span>
+              Diesel Mechanic , Fleet Maintenance Technician ,Service Advisor - Diesel Segment
+            </div>
+          </div>
+        </div>
+      </li>
+          <!-- Trade:  Mechanic Motor Vehicle -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade=" Mechanic Motor Vehicle">
+            <div class="trade-name"><i class="fas fa-car"></i> Mechanic Motor Vehicle</div>
+            <div class="trade-details">
+              <!-- Fee -->
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹5,000 - ₹8,000 (Govt) <br> ₹20,000 - ₹40,000 (Private)
+                </div>
+              </div>
+              <!-- Duration -->
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  2 years (4 semesters)
+                </div>
+              </div>
+              <!-- Nearby Institute -->
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institute:</span>
+                  <div class="institute">
+                    <div class="institute-name"> Govt. ITI Kubernagar</div>
+                    <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                    <div class="institute-phone">Phone: (079) 22923559</div>
+                    <div class="institute-fees"> ₹6,000/year </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Institutes -->
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Other Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Sarkhej</div>
+                      <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                      <div class="institute-phone">Phone: (079) 26823697</div>
+                      <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                      <div class="institute-fees">Approx Fees: ₹5,000 - ₹8,000/year</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                      <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079 2281 2287</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Career Opportunities -->
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  Automobile Technician , Diagnostic Specialist , Workshop Supervisor
+                </div>
+              </div>
+            </div>
+          </li>
+
+
+
+          <!-- Trade: Draughtsman (Mechanical)  -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade=" Draughtsman (Mechanical) ">
+            <div class="trade-name"><i class="fas fa-drafting-compass"></i> Draughtsman (Mechanical)</div>
+            <div class="trade-details">
+              <!-- Fee -->
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹6,000 - ₹9,000 (Govt) <br> ₹25,000 - ₹45,000 (Private)
+                </div>
+              </div>
+              <!-- Duration -->
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  2 years (4 semesters)
+                </div>
+              </div>
+              <!-- Nearby Institute -->
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institute:</span>
+                  <div class="institute">
+                    <div class="institute-name">Govt. ITI Kubernagar</div>
+                    <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                    <div class="institute-phone">Phone: (079) 22923559</div>
+                    <div class="institute-fees"> ₹6,000 - ₹7,000/year </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Institutes -->
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Other Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Sarkhej</div>
+                      <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                      <div class="institute-phone">Phone: (079) 26823697</div>
+                      <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                      <div class="institute-fees">Approx Fees: ₹6,000 - ₹8,000/year</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                      <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079 2281 2287</div>
+                      <div class="institute-fees">Approx Fees: ₹25,000 - ₹40,000/year</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Career Opportunities -->
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  Mechanical Draughtsman , CAD Designer , Project Design Assistant
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Trade:  Refrigeration and Air Conditioning  -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="  Refrigeration and Air Conditioning ">
+            <div class="trade-name"><i class="fas fa-snowflake"></i> Refrigeration and Air Conditioning</div>
+            <div class="trade-details">
+              <!-- Fee -->
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹5,000 - ₹8,000 (Govt) <br> ₹20,000 - ₹35,000 (Private)
+                </div>
+              </div>
+              <!-- Duration -->
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  2 years (4 semesters)
+                </div>
+              </div>
+              <!-- Nearby Institute -->
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institute:</span>
+                  <div class="institute">
+                    <div class="institute-name">Govt. ITI Kubernagar</div>
+                    <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                    <div class="institute-phone">Phone: (079) 22923559</div>
+                    <div class="institute-fees"> ₹6,000 - ₹7,000/year </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Institutes -->
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Other Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Sarkhej</div>
+                      <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                      <div class="institute-phone">Phone: (079) 26823697</div>
+                      <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                      <div class="institute-fees">Approx Fees: ₹5,500 - ₹7,500/year</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                      <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079 2281 2287</div>
+                      <div class="institute-fees">Approx Fees: ₹25,000 - ₹30,000/year</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Career Opportunities -->
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  AC & Refrigerator Technician , Cooling Systems Maintenance Officer , HVAC Technician
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Trade:  Sheet Metal Worker  -->
+          <li class="trade-item" onclick="showTradeDetails(this)" data-trade="  Sheet Metal Worker ">
+            <div class="trade-name"><i class="fas fa-layer-group"></i> Sheet Metal Worker</div>
+            <div class="trade-details">
+              <!-- Fee -->
+              <div class="detail-item">
+                <i class="fas fa-rupee-sign"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Fees:</span>
+                  ₹2,000 - ₹5,000 (Govt) <br> ₹15,000 - ₹25,000 (Private)
+                </div>
+              </div>
+              <!-- Duration -->
+              <div class="detail-item">
+                <i class="fas fa-clock"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Duration:</span>
+                  1 years (2 semesters)
+                </div>
+              </div>
+              <!-- Nearby Institute -->
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institute:</span>
+                  <div class="institute">
+                    <div class="institute-name">Govt. ITI Kubernagar</div>
+                    <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                    <div class="institute-phone">Phone: (079) 22923559</div>
+                    <div class="institute-fees"> ₹3,000 - ₹4,000/year </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Institutes -->
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Other Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Sarkhej</div>
+                      <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                      <div class="institute-phone">Phone: (079) 26823697</div>
+                      <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                      <div class="institute-fees">Approx Fees: ₹3,500 - ₹5,500/year</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                      <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079 2281 2287</div>
+                      <div class="institute-fees">Approx Fees: ₹20,000 - ₹25,000/year</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Career Opportunities -->
+              <div class="detail-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Career Opportunities:</span>
+                  Sheet Metal Fabricator , Ducting Technician (HVAC) , Welding & Sheet Work Assistant
+                </div>
+              </div>
+            </div>
+          </li>
+        <!-- Trade: Foundryman -->
+        <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Foundryman">
+          <div class="trade-name"><i class="fas fa-fire"></i> Foundryman</div>
+          <div class="trade-details">
+            <div class="detail-item">
+              <i class="fas fa-rupee-sign"></i>
+              <div class="detail-content">
+                <span class="detail-label">Fees:</span>
+                ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <div class="detail-content">
+                <span class="detail-label">Duration:</span>
+                1 year
+              </div>
+            </div>
+              <!-- Nearby Institute -->
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institute:</span>
+                  <div class="institute">
+                    <div class="institute-name">Govt. ITI Kubernagar</div>
+                    <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                    <div class="institute-phone">Phone: (079) 22923559</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Institutes -->
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Other Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Sarkhej</div>
+                      <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                      <div class="institute-phone">Phone: (079) 26823697</div>
+                      <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                      <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079 2281 2287</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+
+        <!-- Trade: Welder (Gas & Electric) -->
+        <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Welder (Gas & Electric)">
+          <div class="trade-name"><i class="fas fa-wrench"></i> Welder (Gas & Electric)</div>
+          <div class="trade-details">
+            <div class="detail-item">
+              <i class="fas fa-rupee-sign"></i>
+              <div class="detail-content">
+                <span class="detail-label">Fees:</span>
+                ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <div class="detail-content">
+                <span class="detail-label">Duration:</span>
+                1 year
+              </div>
+            </div>
+              <!-- Nearby Institute -->
+              <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Nearby Institute:</span>
+                  <div class="institute">
+                    <div class="institute-name">Govt. ITI Kubernagar</div>
+                    <div class="institute-address">Near UCO Bank, Kubernagar, Ahmedabad - 380024</div>
+                    <div class="institute-phone">Phone: (079) 22923559</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Institutes -->
+              <div class="detail-item">
+                <i class="fas fa-university"></i>
+                <div class="detail-content">
+                  <span class="detail-label">Other Institutes:</span>
+                  <div class="institute-list">
+                    <div class="institute">
+                      <div class="institute-name">Government ITI, Sarkhej</div>
+                      <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                      <div class="institute-phone">Phone: (079) 26823697</div>
+                      <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                    </div>
+                    <div class="institute">
+                      <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                      <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                      <div class="institute-phone">Phone: 079 2281 2287</div>
+                    </div>
+                  </div>
+             </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Electrical / Electronics Trades Section -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div><i class="fas fa-bolt"></i> Electrical / Electronics Trades</div>
+      <i class="fas fa-chevron-right arrow"></i>
+    </div>
+    <div class="content">
+      <ul>
+        <!-- Trade: Electrician -->
+        <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Electrician">
+          <div class="trade-name"><i class="fas fa-plug"></i> Electrician <span class="duration-badge">2 years</span></div>
+          <div class="trade-details">
+            <div class="detail-item">
+              <i class="fas fa-rupee-sign"></i>
+              <div class="detail-content">
+                <span class="detail-label">Fees:</span>
+                ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="detail-content">
+              <span class="detail-label">Nearby Institute:</span>
+              <div class="institute">
+                <div class="institute-name">Government ITI Ahmedabad</div>
+                <div class="institute-address">Navrangpura, Ahmedabad</div>
+                <div class="institute-phone">Phone: 079-26300000</div>
+                
+              </div>
+            </div>
+          </div>
+            <!-- Other Institutes -->
+            <div class="detail-item">
+              <i class="fas fa-university"></i>
+              <div class="detail-content">
+                <span class="detail-label">Other Institutes:</span>
+                <div class="institute-list">
+                  <div class="institute">
+                    <div class="institute-name">Government ITI, Sarkhej</div>
+                    <div class="institute-address">Sarkhej, Ahmedabad - 382210</div>
+                    <div class="institute-phone">Phone: (079) 26823697</div>
+                    <div class="institute-email">Email: prlsarkhejiti@yahoo.co.in</div>
+                  </div>
+                  <div class="institute">
+                    <div class="institute-name">Shree Swaminarayan Private ITI, Naroda</div>
+                    <div class="institute-address">Near Naroda GIDC, Ahmedabad</div>
+                    <div class="institute-phone">Phone: 079 2281 2287</div>
+                  </div>
+                </div>
+           </div>
+        </div>
+
+        </div>
+      </li>
+
+      <!-- Trade: Wireman -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Wireman">
+        <div class="trade-name"><i class="fas fa-bolt"></i> Wireman <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="detail-content">
+              <span class="detail-label">Nearby Institute:</span>
+              <div class="institute">
+                <div class="institute-name">Government ITI Ahmedabad</div>
+                <div class="institute-address">Navrangpura, Ahmedabad</div>
+                <div class="institute-phone">Phone: 079-26300000</div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Electronics Mechanic -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Electronics Mechanic">
+        <div class="trade-name"><i class="fas fa-microchip"></i> Electronics Mechanic <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="detail-content">
+              <span class="detail-label">Nearby Institute:</span>
+              <div class="institute">
+                <div class="institute-name">Government ITI Ahmedabad</div>
+                <div class="institute-address">Navrangpura, Ahmedabad</div>
+                <div class="institute-phone">Phone: 079-26300000</div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Instrument Mechanic -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Instrument Mechanic">
+        <div class="trade-name"><i class="fas fa-tachometer-alt"></i> Instrument Mechanic <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Mechanic Consumer Electronics -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Mechanic Consumer Electronics">
+        <div class="trade-name"><i class="fas fa-tv"></i> Mechanic Consumer Electronics <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Computer & IT Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-laptop-code"></i> Computer & IT Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Computer Operator and Programming Assistant (COPA) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Computer Operator and Programming Assistant (COPA)">
+        <div class="trade-name"><i class="fas fa-keyboard"></i> Computer Operator and Programming Assistant (COPA) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Information and Communication Technology System Maintenance -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Information and Communication Technology System Maintenance">
+        <div class="trade-name"><i class="fas fa-server"></i> Information and Communication Technology System Maintenance <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹6,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Data Entry Operator -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Data Entry Operator">
+        <div class="trade-name"><i class="fas fa-database"></i> Data Entry Operator <span class="duration-badge">6 months - 1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              6 months - 1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: IT and Electronics System Maintenance -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="IT and Electronics System Maintenance">
+        <div class="trade-name"><i class="fas fa-desktop"></i> IT and Electronics System Maintenance <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹6,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Automobile & Vehicle Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-car-alt"></i> Automobile & Vehicle Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Mechanic (Motor Vehicle) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Mechanic (Motor Vehicle)">
+        <div class="trade-name"><i class="fas fa-car"></i> Mechanic (Motor Vehicle) <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹15,000 (Govt)<br>₹15,000 - ₹30,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Mechanic (Diesel) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Mechanic (Diesel)">
+        <div class="trade-name"><i class="fas fa-truck"></i> Mechanic (Diesel) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Mechanic (Two Wheeler) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Mechanic (Two Wheeler)">
+        <div class="trade-name"><i class="fas fa-motorcycle"></i> Mechanic (Two Wheeler) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Auto Electrician -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Auto Electrician">
+        <div class="trade-name"><i class="fas fa-car-battery"></i> Auto Electrician <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Civil / Construction Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-hard-hat"></i> Civil / Construction Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Draughtsman (Civil) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Draughtsman (Civil)">
+        <div class="trade-name"><i class="fas fa-ruler-combined"></i> Draughtsman (Civil) <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹6,000 - ₹15,000 (Govt)<br>₹15,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Surveyor -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Surveyor">
+        <div class="trade-name"><i class="fas fa-compass"></i> Surveyor <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Mason (Building Constructor) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Mason (Building Constructor)">
+        <div class="trade-name"><i class="fas fa-hammer"></i> Mason (Building Constructor) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Carpenter -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Carpenter">
+        <div class="trade-name"><i class="fas fa-tree"></i> Carpenter <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Painter (General) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Painter (General)">
+        <div class="trade-name"><i class="fas fa-paint-roller"></i> Painter (General) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Plumber -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Plumber">
+        <div class="trade-name"><i class="fas fa-faucet"></i> Plumber <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hospitality & Food Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-utensils"></i> Hospitality & Food Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Baker and Confectioner -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Baker and Confectioner">
+        <div class="trade-name"><i class="fas fa-birthday-cake"></i> Baker and Confectioner <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Food Production (General) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Food Production (General)">
+        <div class="trade-name"><i class="fas fa-hamburger"></i> Food Production (General) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Food & Beverage Service Assistant -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Food & Beverage Service Assistant">
+        <div class="trade-name"><i class="fas fa-concierge-bell"></i> Food & Beverage Service Assistant <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Housekeeper -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Housekeeper">
+        <div class="trade-name"><i class="fas fa-broom"></i> Housekeeper <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Health & Paramedical Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-medkit"></i> Health & Paramedical Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Health Sanitary Inspector -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Health Sanitary Inspector">
+        <div class="trade-name"><i class="fas fa-hand-sparkles"></i> Health Sanitary Inspector <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Physiotherapy Technician -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Physiotherapy Technician">
+        <div class="trade-name"><i class="fas fa-procedures"></i> Physiotherapy Technician <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Dental Laboratory Technician -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Dental Laboratory Technician">
+        <div class="trade-name"><i class="fas fa-tooth"></i> Dental Laboratory Technician <span class="duration-badge">2 years</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹6,000 - ₹15,000 (Govt)<br>₹15,000 - ₹30,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              2 years
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Hospital Housekeeping -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Hospital Housekeeping">
+        <div class="trade-name"><i class="fas fa-hospital"></i> Hospital Housekeeping <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Fashion & Art Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-tshirt"></i> Fashion & Art Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Sewing Technology -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Sewing Technology">
+        <div class="trade-name"><i class="fas fa-cut"></i> Sewing Technology <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Fashion Design & Technology -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Fashion Design & Technology">
+        <div class="trade-name"><i class="fas fa-tshirt"></i> Fashion Design & Technology <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Dress Making -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Dress Making">
+        <div class="trade-name"><i class="fas fa-vest"></i> Dress Making <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Embroidery and Needle Work -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Embroidery and Needle Work">
+        <div class="trade-name"><i class="fas fa-thread"></i> Embroidery and Needle Work <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Beauty & Wellness Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-spa"></i> Beauty & Wellness Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Hair & Skin Care -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Hair & Skin Care">
+        <div class="trade-name"><i class="fas fa-cut"></i> Hair & Skin Care <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Beautician -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Beautician">
+        <div class="trade-name"><i class="fas fa-spa"></i> Beautician <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Other Unique Trades Section -->
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div><i class="fas fa-star"></i> Other Unique Trades</div>
+    <i class="fas fa-chevron-right arrow"></i>
+  </div>
+  <div class="content">
+    <ul>
+      <!-- Trade: Fire Technology and Industrial Safety Management -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Fire Technology and Industrial Safety Management">
+        <div class="trade-name"><i class="fas fa-fire-extinguisher"></i> Fire Technology and Industrial Safety Management <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Stenography (English/Hindi) -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Stenography (English/Hindi)">
+        <div class="trade-name"><i class="fas fa-keyboard"></i> Stenography (English/Hindi) <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹3,000 - ₹8,000 (Govt)<br>₹8,000 - ₹15,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Interior Decoration & Designing -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Interior Decoration & Designing">
+        <div class="trade-name"><i class="fas fa-couch"></i> Interior Decoration & Designing <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹5,000 - ₹12,000 (Govt)<br>₹12,000 - ₹25,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Trade: Desktop Publishing Operator -->
+      <li class="trade-item" onclick="showTradeDetails(this)" data-trade="Desktop Publishing Operator">
+        <div class="trade-name"><i class="fas fa-print"></i> Desktop Publishing Operator <span class="duration-badge">1 year</span></div>
+        <div class="trade-details">
+          <div class="detail-item">
+            <i class="fas fa-rupee-sign"></i>
+            <div class="detail-content">
+              <span class="detail-label">Fees:</span>
+              ₹4,000 - ₹10,000 (Govt)<br>₹10,000 - ₹20,000 (Private)
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-clock"></i>
+            <div class="detail-content">
+              <span class="detail-label">Duration:</span>
+              1 year
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+ <script>
+  // Section toggle (accordion)
+  function toggleSection(element) {
+    element.classList.toggle('active');
+    const content = element.nextElementSibling;
+    content.classList.toggle('active');
+  }
+
+  // Trade details toggle
+  function showTradeDetails(item) {
+    // Close all other open trades
+    const allTrades = document.querySelectorAll('.trade-item');
+    allTrades.forEach(trade => {
+      if (trade !== item) {
+        trade.classList.remove('active');
+        trade.querySelector('.trade-details').style.display = 'none';
+      }
+    });
+
+    // Toggle current trade
+    const details = item.querySelector('.trade-details');
+    const isVisible = details.style.display === 'block';
+    item.classList.toggle('active');
+    details.style.display = isVisible ? 'none' : 'block';
+  }
+
+  // Updated Search filtering
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    let anyVisible = false;
+
+    // Loop through each section
+    document.querySelectorAll('.section').forEach(section => {
+      let sectionHasMatch = false;
+
+      // Get all trade-items in this section
+      const trades = section.querySelectorAll('.trade-item');
+
+      trades.forEach(trade => {
+        const tradeName = trade.getAttribute('data-trade').toLowerCase();
+        if (tradeName.includes(searchTerm)) {
+          trade.style.display = '';
+          sectionHasMatch = true;
+          anyVisible = true;
+        } else {
+          trade.style.display = 'none';
+        }
+      });
+
+      // Show/hide the entire section based on whether any trade matched
+      section.style.display = sectionHasMatch ? '' : 'none';
+    });
+
+    document.querySelector('.no-results').style.display = anyVisible ? 'none' : 'block';
+  });
+</script>
+
+</body>
+</html>

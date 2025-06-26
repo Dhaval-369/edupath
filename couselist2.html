@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses at Greenfield University</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="couselist2.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>Edu<span>Path</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collegelist.html">Colleges</a></li>
+          <li><a href="couselist2.html" class="active">Courses</a></li>
+          <li><a href="about us.html">About Us</a></li>
+          <li><a href="contact us.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <div class="cta-buttons">
+          <a href="#" class="btn-login">Login</a>
+          <a href="#" class="btn-signup">Sign Up</a>
+        </div>
+        <div class="mode-switch">
+          <input type="checkbox" id="mode-toggle" class="mode-toggle">
+          <label for="mode-toggle" class="mode-label">
+            <span class="mode-text mode-text-left">12th</span>
+            <span class="mode-slider"></span>
+            <span class="mode-text mode-text-right">10th</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Course Hero Section -->
+  <section class="course-hero">
+    <div class="container">
+      <h1>Explore Our Courses</h1>
+      <p>Choose from a wide range of undergraduate and postgraduate programs designed to shape your future and launch your career.</p>
+      <a href="#courses" class="btn btn-primary">Browse Programs</a>
+    </div>
+  </section>
+
+  <!-- Courses Grid Section -->
+  <section class="courses-grid" id="courses">
+    <div class="container">
+      <h2>Undergraduate Programs</h2>
+      <div class="courses">
+        <div class="course-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>BCA</h3>
+          <p>Bachelor of Computer Applications</p>
+          <a href="bca-colleges copy.html" class="btn-learn-more">Learn More</a>
+        </div>
+        <div class="course-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>BBA</h3>
+          <p>Bachelor of Business Administration</p>
+          <a href="bba-colleges.html" class="btn-learn-more">Learn More</a>
+        </div>
+        <div class="course-card">
+          <i class="fas fa-code"></i>
+          <h3>BSc-IT</h3>
+          <p>Bachelor of Science in Information Technology</p>
+          <a href="bsc-it_list.html" class="btn-learn-more">Learn More</a>
+        </div>
+        <div class="course-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>BCom</h3>
+          <p>Bachelor of Commerce</p>
+          <a href="bcom-colleges.html" class="btn-learn-more">Learn More</a>
+        </div>
+        <div class="course-card">
+          <i class="fas fa-paint-brush"></i>
+          <h3>BA</h3>
+          <p>Bachelor of Arts</p>
+          <a href="B.A_collagelist.html" class="btn-learn-more">Learn More</a>
+        </div>
+        <div class="course-card">
+          <i class="fas fa-flask"></i>
+          <h3>BSc</h3>
+          <p>Bachelor of Science</p>
+          <a href="bsc.collage.html" class="btn-learn-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 EduPath. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>  
+  </footer>
+
+  <script>
+    document.getElementById('mode-toggle').addEventListener('change', function() {
+      if(this.checked) {
+        window.location.href = "couse-list_for10.html";
+      } else {
+        window.location.href = "couselist.html";
+      }
+    });
+
+    // Set initial state based on current page
+    if(window.location.pathname.includes("couse-list_for10")) {
+      document.getElementById('mode-toggle').checked = true;
+    }
+  </script>
+</body>
+</html>

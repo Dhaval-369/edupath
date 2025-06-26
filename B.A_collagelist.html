@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.A. Colleges in Ahmedabad</title>
+    <link rel="stylesheet" href="bca copy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        B.A. (Bachelor of Arts) Colleges in Ahmedabad
+    </header>
+
+    <section class="section">
+        <h2>Top B.A. (Bachelor of Arts) Colleges in Ahmedabad</h2>
+        <p>Below is the list of top B.A. colleges in Ahmedabad with their Google ratings and type.</p>
+        
+        <table class="college-table">
+            <thead>
+                <tr>
+                    <th>College Name</th>
+                    <th>Google Rating ⭐</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="#" class="college-link" data-college="St. Xavier's College">St. Xavier's College</a></td><td>4.5/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Gujarat University">Gujarat University</a></td><td>4.3/5</td><td>Government</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="HL College of Commerce">HL College of Commerce</a></td><td>4.2/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Ahmedabad University">Ahmedabad University</a></td><td>4.4/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="HK Arts College">HK Arts College</a></td><td>4.1/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Gujarat Vidyapith">Gujarat Vidyapith</a></td><td>4.0/5</td><td>Deemed University</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="LD Arts College">LD Arts College</a></td><td>4.2/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="MG Science Institute">MG Science Institute</a></td><td>4.0/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Nirma University">Nirma University</a></td><td>4.3/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Silver Oak University">Silver Oak University</a></td><td>4.1/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="GLS University">GLS University</a></td><td>3.9/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Indus University">Indus University</a></td><td>4.0/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Navgujarat College">Navgujarat College</a></td><td>4.1/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Sheth CN College">Sheth CN College</a></td><td>3.9/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Ramanbhai Patel College">Ramanbhai Patel College</a></td><td>4.0/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Shree HK Arts College">Shree HK Arts College</a></td><td>3.8/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Shri HK Arts College">Shri HK Arts College</a></td><td>4.0/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Shri CL Parikh College">Shri CL Parikh College</a></td><td>3.7/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="VG Vaze College">VG Vaze College</a></td><td>3.9/5</td><td>Grant-in-Aid</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Sabarmati University">Sabarmati University</a></td><td>3.8/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="LJ University">LJ University</a></td><td>3.9/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Sigma University">Sigma University</a></td><td>4.0/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="KS School of Business">KS School of Business</a></td><td>3.8/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Rai University">Rai University</a></td><td>3.7/5</td><td>Private</td></tr>
+                <tr><td><a href="#" class="college-link" data-college="Shanti Niketan College">Shanti Niketan College</a></td><td>3.9/5</td><td>Grant-in-Aid</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // College data (fees, courses, etc.)
+        const collegeData = {
+            "St. Xavier's College": {
+                fees: "₹12,000 first year fees",
+                courses: ["B.A. (English)", "B.A. (Economics)", "B.A. (Psychology)"],
+                address: "St. Xavier's Corner, Ahmedabad",
+                website: "https://sxca.edu.in/"
+            },
+            "Gujarat University": {
+                fees: "₹8,000 first year fees",
+                courses: ["B.A. (History)", "B.A. (Political Science)", "B.A. (Sociology)"],
+                address: "Gujarat University Campus, Ahmedabad",
+                website: "https://www.gujaratuniversity.ac.in/"
+            },
+            "HL College of Commerce": {
+                fees: "₹10,500 first year fees",
+                courses: ["B.A. (Economics)", "B.A. (English Literature)", "B.A. (Gujarati)"],
+                address: "HL Campus, Ahmedabad",
+                website: "https://hlcollege.edu/"
+            },
+            "Ahmedabad University": {
+                fees: "₹1,20,000 first year fees",
+                courses: ["B.A. (Liberal Arts)", "B.A. (International Relations)", "B.A. (Media Studies)"],
+                address: "Ahmedabad University Campus, Ahmedabad",
+                website: "https://ahduni.edu.in/"
+            },
+            "HK Arts College": {
+                fees: "₹10,500 first year fees",
+                courses: ["B.A. (Performing Arts)", "B.A. (Fine Arts)", "B.A. (Music)"],
+                address: "HK Arts Campus, Ahmedabad",
+                website: "https://hkarts.edu.in/"
+            },
+            "Gujarat Vidyapith": {
+                fees: "₹7,500 first year fees",
+                courses: ["B.A. (Gandhian Studies)", "B.A. (Rural Development)", "B.A. (Social Work)"],
+                address: "Gujarat Vidyapith Campus, Ahmedabad",
+                website: "https://www.gujaratvidyapith.org/"
+            },
+            "LD Arts College": {
+                fees: "₹9,800 first year fees",
+                courses: ["B.A. (History)", "B.A. (Geography)", "B.A. (Philosophy)"],
+                address: "LD Arts Campus, Ahmedabad",
+                website: "https://ldarts.edu.in/"
+            },
+            "MG Science Institute": {
+                fees: "₹11,200 first year fees",
+                courses: ["B.A. (Psychology)", "B.A. (Sociology)", "B.A. (Statistics)"],
+                address: "MG Science Campus, Ahmedabad",
+                website: "https://mgscience.org/"
+            },
+            "Nirma University": {
+                fees: "₹85,000 first year fees",
+                courses: ["B.A. (Journalism)", "B.A. (Mass Communication)", "B.A. (Public Relations)"],
+                address: "Nirma Campus, Ahmedabad",
+                website: "https://nirmauni.ac.in/"
+            },
+            "Silver Oak University": {
+                fees: "₹35,000 first year fees",
+                courses: ["B.A. (English)", "B.A. (Economics)", "B.A. (Political Science)"],
+                address: "Silver Oak Campus, Ahmedabad",
+                website: "https://silveroakuni.ac.in/"
+            },
+            "GLS University": {
+                fees: "₹45,000 first year fees",
+                courses: ["B.A. (Performing Arts)", "B.A. (Fashion Design)", "B.A. (Interior Design)"],
+                address: "GLS Campus, Ahmedabad",
+                website: "https://www.glsuniversity.ac.in/"
+            },
+            "Indus University": {
+                fees: "₹50,000 first year fees",
+                courses: ["B.A. (Liberal Arts)", "B.A. (International Studies)", "B.A. (Design)"],
+                address: "Indus Campus, Ahmedabad",
+                website: "https://indusuni.ac.in/"
+            },
+            "Navgujarat College": {
+                fees: "₹8,500 first year fees",
+                courses: ["B.A. (Gujarati)", "B.A. (Hindi)", "B.A. (Sanskrit)"],
+                address: "Navgujarat Campus, Ahmedabad",
+                website: "https://ngcca.ngc.edu.in/"
+            },
+            "Sheth CN College": {
+                fees: "₹9,200 first year fees",
+                courses: ["B.A. (Economics)", "B.A. (History)", "B.A. (Political Science)"],
+                address: "CN College Campus, Ahmedabad",
+                website: "https://cncollege.edu.in/"
+            },
+            "Ramanbhai Patel College": {
+                fees: "₹10,000 first year fees",
+                courses: ["B.A. (Sociology)", "B.A. (Psychology)", "B.A. (English)"],
+                address: "Ramanbhai Patel Campus, Ahmedabad",
+                website: "https://rpc.ac.in/"
+            },
+            "Shree HK Arts College": {
+                fees: "₹8,800 first year fees",
+                courses: ["B.A. (Gujarati)", "B.A. (History)", "B.A. (Economics)"],
+                address: "HK Arts Campus, Ahmedabad",
+                website: "https://hkarts.edu.in/"
+            },
+            "Shri HK Arts College": {
+                fees: "₹9,500 first year fees",
+                courses: ["B.A. (English)", "B.A. (Psychology)", "B.A. (Sociology)"],
+                address: "HK Arts Campus, Vastrapur, Ahmedabad",
+                website: "https://hkartsvastrapur.edu.in/"
+            },
+            "Shri CL Parikh College": {
+                fees: "₹7,800 first year fees",
+                courses: ["B.A. (Economics)", "B.A. (Political Science)", "B.A. (History)"],
+                address: "CL Parikh Campus, Ahmedabad",
+                website: "https://clparikhcollege.edu.in/"
+            },
+            "VG Vaze College": {
+                fees: "₹11,000 first year fees",
+                courses: ["B.A. (English)", "B.A. (Economics)", "B.A. (Sociology)"],
+                address: "VG Vaze Campus, Ahmedabad",
+                website: "https://vgvaze.edu.in/"
+            },
+            "Sabarmati University": {
+                fees: "₹40,000 first year fees",
+                courses: ["B.A. (Journalism)", "B.A. (Mass Communication)", "B.A. (Public Relations)"],
+                address: "Sabarmati Campus, Ahmedabad",
+                website: "https://sabarmatiuniversity.edu.in/"
+            },
+            "LJ University": {
+                fees: "₹55,000 first year fees",
+                courses: ["B.A. (Liberal Arts)", "B.A. (Design)", "B.A. (Performing Arts)"],
+                address: "LJ Campus, Ahmedabad",
+                website: "https://ljku.edu.in/"
+            },
+            "Sigma University": {
+                fees: "₹48,000 first year fees",
+                courses: ["B.A. (Psychology)", "B.A. (Sociology)", "B.A. (English)"],
+                address: "Sigma Campus, Ahmedabad",
+                website: "https://sigmauniversity.ac.in/"
+            },
+            "KS School of Business": {
+                fees: "₹25,000 first year fees",
+                courses: ["B.A. (Economics)", "B.A. (Business Studies)", "B.A. (Statistics)"],
+                address: "KS School Campus, Ahmedabad",
+                website: "https://www.ksschool.org.in/"
+            },
+            "Rai University": {
+                fees: "₹38,000 first year fees",
+                courses: ["B.A. (Journalism)", "B.A. (Mass Communication)", "B.A. (Public Relations)"],
+                address: "Rai Campus, Ahmedabad",
+                website: "https://www.raiuniversity.edu/"
+            },
+            "Shanti Niketan College": {
+                fees: "₹9,000 first year fees",
+                courses: ["B.A. (Gujarati)", "B.A. (Hindi)", "B.A. (Sanskrit)"],
+                address: "Shanti Niketan Campus, Ahmedabad",
+                website: "https://shantiniketan.edu.in/"
+            }
+        };
+
+        // Function to show college details
+        function showCollegeDetails(collegeName, row) {
+            const college = collegeData[collegeName];
+            if (!college) {
+                alert("Details not available for this college.");
+                return;
+            }
+
+            // Create a new row for details
+            const detailsRow = document.createElement('tr');
+            detailsRow.classList.add('details-row');
+            detailsRow.innerHTML = `
+                <td colspan="3">
+                    <div class="details-content">
+                        <div class="detail-item">
+                            <i class="fas fa-rupee-sign"></i>
+                            <strong>Fees:</strong> ${college.fees}
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-book"></i>
+                            <strong>Courses Offered:</strong> ${college.courses.join(", ")}
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <strong>Address:</strong> ${college.address}
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-globe"></i>
+                            <strong>Website:</strong> <a href="${college.website}" target="_blank">${college.website}</a>
+                        </div>
+                    </div>
+                </td>
+            `;
+
+            // Insert the details row below the clicked row
+            row.parentNode.insertBefore(detailsRow, row.nextSibling);
+        }
+
+        // Add click event listeners to college links
+        document.querySelectorAll('.college-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+
+                // Remove any previously displayed details
+                document.querySelectorAll('.details-row').forEach(row => row.remove());
+
+                // Get the college name and the clicked row
+                const collegeName = link.getAttribute('data-college');
+                const row = link.closest('tr');
+
+                // Show the details for the clicked college
+                showCollegeDetails(collegeName, row);
+            });
+        });
+    </script>
+</body>
+</html>

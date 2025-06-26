@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ITI Courses After 10th</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: #007bff;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    
+    .section {
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: white;
+    }
+    
+    .section-header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    
+    .section-header:hover {
+      background-color: #0069d9;
+    }
+    
+    .section-header i {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+    
+    .content {
+      display: none;
+      padding: 15px 20px;
+      border-top: 1px solid #eee;
+    }
+    
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+    }
+    
+    li:last-child {
+      border-bottom: none;
+    }
+    
+    li i {
+      margin-right: 10px;
+      color: #007bff;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 22px;
+      }
+
+      li {
+  position: relative;
+  padding: 10px 10px 5px 0;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.course-details {
+  display: none;
+  margin-top: 5px;
+  background-color: #eef3ff;
+  border-left: 4px solid #007bff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.course-details ul {
+  margin: 5px 0 0 20px;
+  padding: 0;
+  list-style-type: disc;
+}
+
+
+      
+      .section-header {
+        padding: 12px 15px;
+        font-size: 16px;
+      }
+      
+      li {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    ITI Courses After 10th
+  </header>
+
+  <div class="container">
+    <h1>Click to View Trades</h1>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-cogs"></i> Mechanical / Engineering Trades
+      </div>
+      <div class="content">
+   </div> 
+
+    <!-- <ul>
+      <li onclick="showDetails('Fitter')"><i class="fas fa-wrench"></i> Fitter</li>
+      <li onclick="showDetails('Turner')"><i class="fas fa-sync-alt"></i> Turner</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Machinist</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Tool & Die Maker</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Mechanic Motor Vehicle</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Mechanic Diesel</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Draughtsman (Mechanical)</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Refrigeration and Air Conditioning</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Sheet Metal Worker</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i> Foundryman</li>
+      <li onclick="showDetails('Machinist')"><i class="fas fa-cog"></i>Welder (Gas & Electric)</li>
+    </ul> -->
+    <ul>
+    
+    
+    <!-- Details Box -->
+    <div id="detailsBox" style="display:none; padding: 15px 20px; border-top: 1px solid #ddd; background: #f1f1f1;">
+      <h3 id="courseName" style="margin-top: 0;"></h3>
+      <p><strong>Duration:</strong> <span id="duration"></span></p>
+      <p><strong>Fees:</strong> ₹<span id="fees"></span></p>
+      <p><strong>Nearby Institutes:</strong></p>
+      <ul id="instituteList"></ul>
+    </div>
+    
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-bolt"></i> Electrical / Electronics Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-plug"></i> Electrician</li>
+          <li><i class="fas fa-bolt"></i> Wireman</li>
+          <li><i class="fas fa-microchip"></i> Electronics Mechanic</li>
+          <li><i class="fas fa-tachometer-alt"></i> Instrument Mechanic</li>
+          <li><i class="fas fa-tv"></i> Mechanic Consumer Electronics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-laptop"></i> Computer & IT Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-keyboard"></i> Computer Operator and Programming Assistant (COPA)</li>
+          <li><i class="fas fa-server"></i> Information and Communication Technology System Maintenance</li>
+          <li><i class="fas fa-keyboard"></i> Data Entry Operator</li>
+          <li><i class="fas fa-desktop"></i> IT and Electronics System Maintenance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-car-alt"></i> Automobile & Vehicle Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-car"></i> Mechanic (Motor Vehicle)</li>
+          <li><i class="fas fa-truck"></i> Mechanic (Diesel)</li>
+          <li><i class="fas fa-motorcycle"></i> Mechanic (Two Wheeler)</li>
+          <li><i class="fas fa-car-battery"></i> Auto Electrician</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-building"></i> Civil / Construction Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-drafting-compass"></i> Draughtsman (Civil)</li>
+          <li><i class="fas fa-ruler-combined"></i> Surveyor</li>
+          <li><i class="fas fa-hammer"></i> Mason (Building Constructor)</li>
+          <li><i class="fas fa-wood"></i> Carpenter</li>
+          <li><i class="fas fa-paint-roller"></i> Painter (General)</li>
+          <li><i class="fas fa-faucet"></i> Plumber</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-utensils"></i> Hospitality & Food Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-bread-slice"></i> Baker and Confectioner</li>
+          <li><i class="fas fa-hamburger"></i> Food Production (General)</li>
+          <li><i class="fas fa-concierge-bell"></i> Food & Beverage Service Assistant</li>
+          <li><i class="fas fa-broom"></i> Housekeeper</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-medkit"></i> Health & Paramedical Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-hand-sparkles"></i> Health Sanitary Inspector</li>
+          <li><i class="fas fa-procedures"></i> Physiotherapy Technician</li>
+          <li><i class="fas fa-tooth"></i> Dental Laboratory Technician</li>
+          <li><i class="fas fa-hospital"></i> Hospital Housekeeping</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header" onclick="toggleContent(this)">
+        <i class="fas fa-tshirt"></i> Fashion & Art Trades
+      </div>
+      <div class="content">
+        <ul>
+          <li><i class="fas fa-cut"></i> Sewing Technology</li>
+          <li><i class="fas fa-vest"></i> Fashion Design & Technology</li>
+          <li><i class="fas fa-tshirt"></i> Dress Making</li>
+          <li><i class="fas fa-thread"></i> Embroidery and Needle Work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const courseData = {
+      'Fitter': {
+        duration: '2 Years',
+        fees: '₹8,000 - ₹12,000',
+        institutes: [
+          'Govt. ITI Ahmedabad, Kubernagar',
+          'Shree ITI, Vastral',
+          'Sigma Institute of Technology, Naroda'
+        ]
+      },
+      'Turner': {
+        duration: '2 Years',
+        fees: '₹7,000 - ₹10,000',
+        institutes: [
+          'Govt. ITI, Odhav',
+          'ITI Vejalpur',
+          'Bright ITI, Chandkheda'
+        ]
+      },
+      'Machinist': {
+        duration: '2 Years',
+        fees: '₹9,000 - ₹13,000',
+        institutes: [
+          'Jay ITI, Maninagar',
+          'R.K. Industrial Training Centre, Vatva',
+          'Govt. ITI Behrampura'
+        ]
+      }
+    };
+  
+    function toggleCourseDetails(liElement, courseName) {
+      const detailsDiv = liElement.querySelector('.course-details');
+      const isVisible = detailsDiv.style.display === 'block';
+  
+      // Hide all other open course detail boxes
+      document.querySelectorAll('.course-details').forEach(el => {
+        el.style.display = 'none';
+      });
+  
+      if (!isVisible) {
+        const data = courseData[courseName];
+        if (data) {
+          detailsDiv.innerHTML = `
+            <strong>Duration:</strong> ${data.duration}<br>
+            <strong>Fees:</strong> ${data.fees}<br>
+            <strong>Nearby Institutes:</strong>
+            <ul>
+              ${data.institutes.map(inst => `<li>${inst}</li>`).join('')}
+            </ul>
+          `;
+          detailsDiv.style.display = 'block';
+        }
+      }
+    }
+  </script>
+<!--   
+  <script>
+    const courseData = {
+      'Fitter': {
+        duration: '2 Years',
+        fees: '8,000 - 12,000',
+        institutes: [
+          'Govt. ITI Ahmedabad, Kubernagar',
+          'Shree ITI, Vastral',
+          'Sigma Institute of Technology, Naroda'
+        ]
+      },
+      'Turner': {
+        duration: '2 Years',
+        fees: '7,000 - 10,000',
+        institutes: [
+          'Govt. ITI, Odhav',
+          'ITI Vejalpur',
+          'Bright ITI, Chandkheda'
+        ]
+      },
+      'Machinist': {
+        duration: '2 Years',
+        fees: '9,000 - 13,000',
+        institutes: [
+          'Jay ITI, Maninagar',
+          'R.K. Industrial Training Centre, Vatva',
+          'Govt. ITI Behrampura'
+        ]
+      }
+    };
+  
+    function toggleCourseDetails(liElement, courseName) {
+      const detailsDiv = liElement.querySelector('.course-details');
+      const isVisible = detailsDiv.style.display === 'block';
+  
+      // Hide all open details first
+      document.querySelectorAll('.course-details').forEach(el => el.style.display = 'none');
+  
+      if (!isVisible) {
+        const data = courseData[courseName];
+        if (data) {
+          detailsDiv.innerHTML = `
+            <div style="background:#f1f1f1; padding: 10px; margin-top: 8px; border-radius: 6px; width: 100%;">
+              <strong>Duration:</strong> ${data.duration}<br>
+              <strong>Fees:</strong> ₹${data.fees}<br>
+              <strong>Nearby Institutes:</strong>
+              <ul style="margin: 5px 0 0 15px; padding: 0;">
+                ${data.institutes.map(inst => `<li>${inst}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+          detailsDiv.style.display = 'block';
+        }
+      }
+    }
+  </script> -->
+  
+</body>
+</html>

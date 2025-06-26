@@ -1,0 +1,642 @@
+  /* Global Styles */
+  :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --text-light: #7f8c8d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f9f9f9;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo h1 {
+      color: var(--primary-color);
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .logo h1 span {
+      color: var(--secondary-color);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 30px;
+    }
+    
+    nav ul li a {
+      font-weight: 600;
+      color: var(--dark-color);
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+    
+    nav ul li a.active {
+      color: var(--secondary-color);
+      font-weight: 700;
+    }
+    
+    .cta-buttons .btn-login {
+      margin-right: 15px;
+      color: var(--dark-color);
+      font-weight: 600;
+    }
+    
+    .cta-buttons .btn-signup {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+    
+    .cta-buttons .btn-signup:hover {
+      background-color: #2980b9;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      margin-top: 70px;
+      position: relative;
+    }
+    
+    .hero .container {
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+    
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      animation: fadeInUp 1s ease;
+    }
+    
+    /* University Marquee */
+    .university-marquee {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      animation: marquee 30s linear infinite;
+    }
+    
+    .marquee-content img {
+      height: 60px;
+      margin: 0 30px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s;
+    }
+    
+    .marquee-content img:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    /* Explore Section */
+    .explore-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+    
+    .explore-section h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 36px;
+      color: var(--primary-color);
+      position: relative;
+    }
+    
+    .explore-section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      margin: 15px auto 0;
+    }
+    
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .option-card {
+      background-color: var(--light-color);
+      border-radius: 10px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .option-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .option-card i {
+      font-size: 50px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+    
+    .option-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    
+    .option-card p {
+      color: var(--text-light);
+    }
+    
+    /* Add Student Icon */
+    .add-student-icon {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--secondary-color);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    
+    .add-student-icon:hover {
+      background-color: var(--primary-color);
+      transform: scale(1.1);
+    }
+    
+    .add-student-icon i {
+      color: white;
+      font-size: 24px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 50px 0 20px;
+      text-align: center;
+    }
+    
+    .social-links {
+      margin: 20px 0;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin: 0 10px;
+      color: white;
+      line-height: 40px;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    /* Pop-up Form Styles */
+    #popup-form {
+      position: fixed;
+      bottom: 20px;
+      right: 100px;
+      width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 25px;
+      display: none;
+      z-index: 1000;
+      animation: fadeInUp 0.5s ease;
+    }
+    
+    #popup-form h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    #popup-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    
+    #popup-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    
+    #popup-form button[type="submit"] {
+      background: var(--secondary-color);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    #popup-form button[type="submit"]:hover {
+      background: var(--primary-color);
+    }
+    
+    #close-popup {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    #close-popup:hover {
+      background: #c0392b;
+      transform: rotate(90deg);
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      nav ul {
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      nav ul li {
+        margin: 5px 10px;
+      }
+      
+      .hero {
+        height: 450px;
+        margin-top: 100px;
+      }
+      
+      .hero h1 {
+        font-size: 36px;
+      }
+      
+      .hero p {
+        font-size: 18px;
+      }
+      
+      .marquee-content img {
+        height: 40px;
+        margin: 0 15px;
+      }
+      
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      #popup-form {
+        width: 90%;
+        right: 5%;
+        bottom: 80px;
+      }
+    }
+    /* [Previous CSS code remains the same until the media queries] */
+
+  /* Enhanced Mobile Styles */
+  @media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    nav ul {
+      margin: 10px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav ul li {
+      margin: 5px 8px;
+    }
+    
+    .hero {
+      height: 400px;
+      margin-top: 80px;
+      padding: 20px 0;
+    }
+    
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+    
+    .university-marquee {
+      padding: 15px;
+      margin-top: 20px;
+    }
+    
+    .marquee-content img {
+      height: 35px;
+      margin: 0 15px;
+    }
+    
+    .explore-section {
+      padding: 40px 0;
+    }
+    
+    .explore-section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    
+    .options-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 0 15px;
+    }
+    
+    .option-card {
+      padding: 25px 15px;
+    }
+    
+    .option-card i {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    
+    .option-card h3 {
+      font-size: 20px;
+    }
+    
+    #popup-form {
+      width: 90%;
+      right: 5%;
+      bottom: 90px;
+      padding: 20px;
+    }
+    
+    .add-student-icon {
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .add-student-icon i {
+      font-size: 20px;
+    }
+  }
+
+  /* Additional Mobile Optimizations for smaller screens */
+  @media (max-width: 480px) {
+    .logo h1 {
+      font-size: 24px;
+    }
+    
+    nav ul li {
+      margin: 3px 6px;
+      font-size: 14px;
+    }
+    
+    .cta-buttons .btn-login,
+    .cta-buttons .btn-signup {
+      font-size: 14px;
+      padding: 6px 12px;
+    }
+    
+    .hero {
+      height: 350px;
+    }
+    
+    .hero h1 {
+      font-size: 24px;
+    }
+    
+    .hero p {
+      font-size: 15px;
+    }
+    
+    .marquee-content img {
+      height: 30px;
+      margin: 0 10px;
+    }
+    
+    .explore-section h2 {
+      font-size: 24px;
+    }
+    
+    .option-card {
+      padding: 20px 10px;
+    }
+    
+    .option-card i {
+      font-size: 35px;
+    }
+    
+    .option-card h3 {
+      font-size: 18px;
+    }
+    
+    .option-card p {
+      font-size: 14px;
+    }
+    
+    footer {
+      padding: 30px 0 15px;
+    }
+    
+    .social-links a {
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      margin: 0 5px;
+    }
+    
+    footer p {
+      font-size: 14px;
+    }
+  }
+
+  /* Orientation-specific adjustments */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+      height: 300px;
+    }
+    
+    .hero h1 {
+      font-size: 24px;
+    }
+    
+    .hero p {
+      font-size: 15px;
+    }
+    
+    .university-marquee {
+      margin-top: 15px;
+      padding: 10px;
+    }
+    
+    .marquee-content img {
+      height: 30px;
+    }
+  }
+  

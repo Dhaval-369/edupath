@@ -1,0 +1,500 @@
+/* Global Styles */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --text-color: #333;
+  --text-light: #7f8c8d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo h1 {
+  color: var(--primary-color);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.logo h1 span {
+  color: var(--secondary-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  font-weight: 600;
+  color: var(--dark-color);
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+nav ul li a.active {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.cta-buttons .btn-login {
+  margin-right: 15px;
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.cta-buttons .btn-signup {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.cta-buttons .btn-signup:hover {
+  background-color: #2980b9;
+}
+
+/* Mode Switch Button */
+.mode-switch-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.mode-switch {
+  position: relative;
+  display: inline-block;
+}
+
+.mode-toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mode-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  background: white;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.mode-slider {
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  left: 5px;
+  bottom: 5px;
+  background-color: var(--secondary-color);
+  border-radius: 50px;
+  transition: transform 0.3s;
+  z-index: 1;
+}
+
+.mode-text {
+  position: relative;
+  z-index: 2;
+  width: 50px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.mode-text-left {
+  color: white;
+}
+
+.mode-text-right {
+  color: var(--text-color);
+}
+
+.mode-toggle:checked + .mode-label .mode-slider {
+  transform: translateX(60px);
+}
+
+.mode-toggle:checked + .mode-label .mode-text-left {
+  color: var(--text-color);
+}
+
+.mode-toggle:checked + .mode-label .mode-text-right {
+  color: white;
+}
+
+/* Course Hero Section */
+.course-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  margin-top: 70px;
+  position: relative;
+}
+
+.course-hero .container {
+  z-index: 1;
+}
+
+.course-hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.course-hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+/* Courses Grid */
+.courses-grid {
+  padding: 80px 0;
+}
+
+.courses-grid h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.courses-grid h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  margin: 15px auto 0;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.course-card i {
+  font-size: 50px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.course-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.course-card p {
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+.btn-learn-more {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-learn-more:hover {
+  background-color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 50px 0 20px;
+  text-align: center;
+}
+
+.social-links {
+  margin: 20px 0;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin: 0 10px;
+  color: white;
+  line-height: 40px;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  nav ul {
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 5px 10px;
+  }
+  
+  .course-hero {
+    height: 350px;
+    margin-top: 90px;
+  }
+  
+  .course-hero h1 {
+    font-size: 36px;
+  }
+  
+  .course-hero p {
+    font-size: 18px;
+  }
+  
+  .courses {
+    grid-template-columns: 1fr;
+  }
+  
+  .mode-switch-container {
+    top: 100px;
+    right: 15px;
+  }
+  
+  .mode-label {
+    width: 100px;
+    height: 35px;
+  }
+  
+  .mode-slider {
+    height: 25px;
+    width: 40px;
+  }
+  
+  .mode-toggle:checked + .mode-label .mode-slider {
+    transform: translateX(50px);
+  }
+  
+  .mode-text {
+    font-size: 12px;
+    width: 40px;
+  }
+}/* Updated Header Styles */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Mode Switch Button Styles */
+.mode-switch {
+  position: relative;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.mode-toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mode-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background: white;
+  border-radius: 50px;
+  position: relative;
+  padding: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.mode-slider {
+  position: absolute;
+  height: 24px;
+  width: 44px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--secondary-color);
+  border-radius: 50px;
+  transition: transform 0.3s;
+  z-index: 1;
+}
+
+.mode-text {
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  transition: color 0.3s;
+}
+
+.mode-text-left {
+  color: white;
+}
+
+.mode-text-right {
+  color: var(--text-color);
+}
+
+.mode-toggle:checked + .mode-label .mode-slider {
+  transform: translateX(50px);
+}
+
+.mode-toggle:checked + .mode-label .mode-text-left {
+  color: var(--text-color);
+}
+
+.mode-toggle:checked + .mode-label .mode-text-right {
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-right {
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .mode-switch {
+    margin-top: 10px;
+  }
+  
+  .mode-label {
+    width: 90px;
+    height: 28px;
+  }
+  
+  .mode-slider {
+    height: 22px;
+    width: 40px;
+  }
+  
+  .mode-toggle:checked + .mode-label .mode-slider {
+    transform: translateX(45px);
+  }
+}

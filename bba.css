@@ -1,0 +1,127 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  header {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styles */
+  .college-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .college-table th, .college-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .college-table th {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .college-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .college-table tr:hover {
+    background-color: #e0f7fa;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .college-table tr {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .college-table tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .college-table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+  }
+  
+  .college-table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+  }
+  
+  .college-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  
+  .college-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+  
+  .college-table th:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    transition: background 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .college-table {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .college-table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    .college-table th, .college-table td {
+      white-space: nowrap;
+    }
+  }

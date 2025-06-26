@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B.Sc. Colleges in Ahmedabad</title>
+  <link rel="stylesheet" href="bca copy.css" />
+</head>
+<body>
+
+  <header>
+    B.Sc. (Bachelor of Science) Colleges in Ahmedabad
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-container" style="text-align: center; margin: 20px 0;">
+    <input type="text" id="collegeSearch" placeholder="Search for a college..." onkeyup="filterColleges()" style="padding: 10px; width: 80%; max-width: 500px; font-size: 16px;">
+  </div>
+
+  <section class="section">
+    <h2>Top B.Sc. (Bachelor of Science) Colleges in Ahmedabad</h2>
+    <p>Below is the list of top B.Sc. colleges in Ahmedabad with their Google ratings and type.</p>
+
+    <table class="college-table" id="collegeTable">
+      <thead>
+        <tr>
+          <th>College Name</th>
+          <th>Google Rating ⭐</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="#" class="college-link" data-college="St. Xavier's College">St. Xavier's College</a></td><td>4.1/5</td><td>Private</td></tr>
+        <tr><td><a href="#" class="college-link" data-college="GLS University">GLS University</a></td><td>4.5/5</td><td>Private</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="HL College of Commerce">HL College of Commerce</a></td><td>4.3/5</td><td>Government</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Ahmedabad University">Ahmedabad University</a></td><td>4.4/5</td><td>Private</td></tr>
+        <tr><td><a href="#" class="college-link" data-college="Gujarat University">Gujarat University</a></td><td>4.3/5</td><td>Government</td></tr>
+         <tr><td><a href="#" class="college-link" data-college="LJ University">LJ University</a></td><td>3.9/5</td><td>Private</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="Navgujarat College">Navgujarat College</a></td><td>4.0/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Nirma University">Nirma University</a></td><td>4.5/5</td><td>Private</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Indus University">Indus University</a></td><td>3.9/5</td><td>Private</td></tr>
+        <tr><td><a href="#" class="college-link" data-college="Silver Oak University">Silver Oak University</a></td><td>4.0/5</td><td>Private</td></tr>
+        <tr><td><a href="#" class="college-link" data-college="Gujarat Vidyapith">Gujarat Vidyapith</a></td><td>4.1/5</td><td>Government</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="BK School of Business Management">BK School of Business Management</a></td><td>4.4/5</td><td>Government</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Rai University">Rai University</a></td><td>4.2/5</td><td>Private</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="Kadi Sarva Vishwavidyalaya">Kadi Sarva Vishwavidyalaya</a></td><td>3.8/5</td><td>Private</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Shreyarth University">Shreyarth University</a></td><td>4.0/5</td><td>Private</td></tr>
+        <tr><td><a href="#" class="college-link" data-college="Sabarmati University">Sabarmati University</a></td><td>4.0/5</td><td>Private</td></tr>
+        <tr><td><a href="#" class="college-link" data-college="Monark University">Monark University</a></td><td>N/A</td><td>Private</td></tr>
+        <tr><td><a href="https://ljku.edu.in" class="college-link" data-college="JG University">JG university</a></td><td>3.4/5</td><td>Private</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="IBMR Business School">IBMR Business School</a></td><td>4.0/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Asia Pacific Institute of Management">Asia Pacific Institute of Management</a></td><td>N/A</td><td>Private</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="khyati foundation">khyati foundation</a></td><td>N/A</td><td>Private</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="Ganpat University">Ganpat University</a></td><td>3.7/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Gujarat Commerce College">Gujarat Commerce College</a></td><td>4.3/5</td><td>Private</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Gujarat Technological University">Gujarat Technological University</a></td><td>4.2/5</td><td>Government</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="L.D. College of Engineering">L.D. College of Engineering</a></td><td>4.1/5</td><td>Government</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Sardar Patel Institute of Technology">Sardar Patel Institute of Technology</a></td><td>4.1/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="P.D. Pandya Mahila Commerce College">P.D. Pandya Mahila Commerce College</a></td><td>3.9/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="H.L. Institute of Commerce">H.L. Institute of Commerce</a></td><td>4.0/5</td><td>Government</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="K.S. School of Business Management">K.S. School of Business Management</a></td><td>4.1/5</td><td>Private</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Kaushalya The Skill University Ahmedabad">Kaushalya The Skill University Ahmedabad</a></td><td>4.0/5</td><td>Private</td></tr>
+        <!-- <tr><td><a href="#" class="college-link" data-college="S.P. University">S.P. University</a></td><td>3.9/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Gujarat National Law University">Gujarat National Law University</a></td><td>4.3/5</td><td>Government</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Gujarat Forensic Sciences University">Gujarat Forensic Sciences University</a></td><td>4.1/5</td><td>Government</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Swaminarayan University">Swaminarayan University</a></td><td>4.0/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Shree C.U. Shah College of Commerce">Shree C.U. Shah College of Commerce</a></td><td>3.8/5</td><td>Private</td></tr> -->
+        <!-- <tr><td><a href="#" class="college-link" data-college="Shree L.J. College of Commerce">Shree L.J. College of Commerce</a></td><td>4.1/5</td><td>Private</td></tr> -->
+        <tr><td><a href="#" class="college-link" data-college="Indus Institute of Technology & Engineering Ahmedabad">Indus Institute of Technology & Engineering Ahmedabad</a></td><td>4.0/5</td><td>Government</td></tr> 
+      </tbody>
+    </table>
+  </section>
+
+
+  <script>
+ // College data (fees, courses, etc.)
+ const collegedata = {
+      "GLS University": {
+        fees: "₹1,40,000 first year fees",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "Netaji Road, Opp. Law Garden, Ellisbridge , Ahmedabad",
+        website: "https://www.glsuniversity.ac.in/"
+      },
+      "St. Xavier's College": {
+        fees: "₹15,510 first year fees",
+        courses: ["B.Com", "BA", "B.Sc"],
+        address: "St. Xavier's Corner, Ahmedabad",
+        website: "https://sxca.edu.in/"
+      },
+    //   "HL College of Commerce": {
+    //     fees: "₹2500",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "HL Campus, Ahmedabad",
+    //     website: "https://hlcollege.edu/"
+    //   },
+      "Ahmedabad University": {
+        fees: "₹4,20,000 first year fees",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "Ahmedabad University Campus, Ahmedabad",
+        website: "https://ahduni.edu.in/"
+      },
+      "Gujarat University": {
+        fees: "₹12,000 first year fees",
+        courses: ["B.Com", "M.Com", "BBA"],
+        address: "Gujarat University Campus, Ahmedabad",
+        website: "https://www.gujaratuniversity.ac.in/"
+      },
+      "LJ University": {
+        fees: "₹1,03,000 first year feess",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "LJ Campus, Ahmedabad",
+        website: "https://ljku.edu.in/"
+      },
+    //   "Navgujarat College": {
+    //     fees: "₹10,500 total fees",
+    //     courses: ["B.Com", "BA", "B.Sc"],
+    //     address: "Navgujarat Campus, Ahmedabad",
+    //     website: "https://ngcca.ngc.edu.in/"
+    //   },
+    //   "Nirma University": {
+    //     fees: "₹7.2 lakh total fees",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "Nirma Campus, Ahmedabad",
+    //     website: "https://nirmauni.ac.in/"
+    //   },
+      "Indus University": {
+        fees: "₹55,000 first year fees",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "Indus Campus, Ahmedabad",
+        website: "https://indusuni.ac.in/"
+      },
+      "Silver Oak University": {
+        fees: "₹47,000 first year fees",
+        courses: ["B.Com(hons)", "BBA", "MBA"],
+        address: "Silver Oak Campus, Ahmedabad",
+        website: "https://silveroakuni.ac.in/"
+      },
+      "Gujarat Vidyapith": {
+        fees: "₹8,000 first year fees",
+        courses: ["B.Com", "BA", "B.Sc"],
+        address: "Gujarat Vidyapith Campus, Ahmedabad",
+        website: "https://www.gujaratvidyapith.org/"
+      },
+    //   "BK School of Business Management": {
+    //     fees: "₹80,000 per year",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "BK Campus, Ahmedabad",
+    //     website: "https://bkschool.org.in/"
+    //   },
+      "Rai University": {
+        fees: "₹66,000",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "Rai Campus, Ahmedabad",
+        website: "https://www.raiuniversity.edu/"
+      },
+    //   "Kadi Sarva Vishwavidyalaya": {
+    //     fees: "₹1.21 to 2 lakh total fees",
+    //     courses: ["B.Com", "BBA", "M.Com"],
+    //     address: "Kadi Campus, Ahmedabad",
+    //     website: "https://ksv.ac.in/"
+    //   },
+      "Shreyarth University": {
+        fees: "₹40,000 per year",
+        courses: ["B.Com(hons=20,000)", "BBA", "MBA"],
+        address: "Shreyarth Campus, Ahmedabad",
+        website: "https://shreyarthuni.ac.in/"
+      },
+      "Sabarmati University": {
+        fees: "₹40,000 first year fees",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "Sabarmati Campus, Ahmedabad",
+        website: "https://sabarmatiuniversity.edu.in/"
+      },
+      "Monark University": {
+        fees: "₹60,000 - 70,000 per year",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "Monark Campus, Ahmedabad",
+        website: "https://monarkuni.ac.in/"
+      },
+      "JG University": {
+        fees: "₹60,000 first year fees",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "JG Campus, Ahmedabad",
+        website: "https://jguni.in/"
+      },
+    //   "IBMR Business School": {
+    //     fees: "₹1,17,500 per year",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "IBMR Campus, Ahmedabad",
+    //     website: "https://ibmrbschool.com/"
+    //   },
+    //   "Asia Pacific Institute of Management": {
+    //     fees: "₹35,575 total fees",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "Asia Pacific Campus, Ahmedabad",
+    //     website: "https://apim.ac.in"
+    //   },
+      "khyati foundation": {
+        fees: "₹30,900 first year fees",
+        courses: ["B.Com", "BBA"],
+        address: "Khyati Campus, Ahmedabad",
+        website: "https://www.khyatischoolofcomputerapplication.in/"
+      },
+    //   "Ganpat University": {
+    //     fees: "₹1.6 lakh total fees",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "Ganpat Campus, Ahmedabad",
+    //     website: "https://www.ganpatuniversity.ac.in/"
+    //   },
+     
+      "Gujarat Technological University": {
+        fees: "₹25,000 first year fees",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "GTU Campus, Ahmedabad",
+        website: "https://www.gtu.ac.in/",
+        placement : "1,50,000 - 3,45,000"
+      },
+    //   "L.D. College of Engineering": {
+    //     fees: "₹9,000 per year",
+    //     courses: ["B.Com", "B.Tech"],
+    //     address: "L.D. Campus, Ahmedabad",
+    //     website: "https://ldce.ac.in/"
+    //   },
+    //   "Sardar Patel Institute of Technology": {
+    //     fees: "₹40.8K total fees",
+    //     courses: ["B.Com", "B.Tech"],
+    //     address: "SPIT Campus, Ahmedabad",
+    //     website: "https://spit.ac.in/"
+    //   },
+      
+    //   "P.D. Pandya Mahila Commerce College": {
+    //     fees: "₹15,000 per year",
+    //     courses: ["B.Com", "Bca"],
+    //     address: "Ghodasar, Ahmedabad",
+    //     website: "https://pdpandyamcc.com/"
+    //   },
+    //   "H.L. Institute of Commerce": {
+    //     fees: "₹2500 per year",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "HL Campus,SV Desai Marg, Vasant Vihar, Navrangpura, Ahmedabad",
+    //     website: "https://hlcollege.edu/"
+    //   },
+    //   "k.s School of Business Management": {
+    //     fees: "₹90,500 per year",
+    //     courses: ["B.Com", "MBA"],
+    //     address: "gujrat university, Ahmedabad",
+    //     website: "https://www.ksschool.org.in/"
+    //   },
+    //   "gujarat arts and commerce college": {
+    //     fees: "₹1,200 for male ₹690 for female per year",
+    //     courses: ["B.Com", "BA", "B.Sc"],
+    //     address: "Ellisbridge,Ahmedabad",
+    //     website: "https://gacc.org.in/"
+    //   },
+    //   "gujarat commerce college": {
+    //     fees: "₹3,600 to 1.4 lakh per year",
+    //     courses: ["B.Com", "BA", "B.Sc"],
+    //     address: "opp. Inder Residency Hotel,Ellisbridge,Ahmedabad",
+    //     website: "https://gacc.org.in/"
+    //   },
+      "Kaushalya The Skill University Ahmedabad": {
+        fees: "₹ first year fees ",
+        courses: ["M.Sc", "M.A"],
+        address: " Sushil Nagar Society, Memnagar, Ahmedabad",
+        website: "https://kaushalyaskilluniversity.ac.in/"
+      },
+    //   "S.P. University": {
+    //     fees: "₹ ₹26,000 to ₹84,000 total fees",
+    //     courses: ["B.Com", "B.Tech"],
+    //     address: "SP Campus, Ahmedabad",
+    //     website: "https://spuniversity.edu.in/"
+    //   },
+    //   "Gujarat National Law University": {
+    //     fees: "₹ 6 lakh total fees",
+    //     courses: ["B.Com", "LLB"],
+    //     address: "GNLU Campus, Ahmedabad",
+    //     website: "https://gnlu.ac.in/"
+    //   },
+    //   "Gujarat Forensic Sciences University": {
+    //     fees: "₹ ₹2.67 lakh total fees",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "Ghandinagar, Gujrat",
+    //     website: "https://www.nfsu.ac.in/"
+    //   },
+      
+    //   "swaminarayan university": {
+    //     fees: "₹40,000 per year",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "Swaminarayan Campus, Ahmedabad",
+    //     website: "https://www.swaminarayanuniversity.ac.in/"
+    //   },
+    //   "Shree C.U. Shah College of Commerce": {
+    //     fees: "₹2,620 first year fees ",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "C.U. Shah Campus, Ahmedabad",
+    //     website: "https://cushahcommercecollege.org/"
+    //   },
+     
+    //   "Shree L.J. College of Commerce": {
+    //     fees: "₹1,05,000 to ₹2,92,000 per year",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "Campus, Vastrapur, Ahmedabad",
+    //     website: "https://ljku.edu.in/program/commerce-new-lj-16"
+    //   },
+    
+      
+      "Indus Institute of Technology & Engineering Ahmedabad": {
+        fees: " ₹40,000 first year fees",
+        courses: ["B.Com", "M.Com"],
+        address: "3C8Q+2X2, Shela, Ahmedabad",
+        website: "https://iite.indusuni.ac.in/ "
+      }
+    };
+
+    // Function to show college details
+    function showCollegeDetails(collegeName, row) {
+      const college = collegeData[collegeName];
+      if (!college) {
+        alert("Details not available for this college.");
+        return;
+      }
+
+      // Create a new row for details
+      const detailsRow = document.createElement('tr');
+      detailsRow.classList.add('details-row');
+      detailsRow.innerHTML = `
+        <td colspan="3">
+          <div class="details-content">
+            <div class="detail-item">
+              <i class="fas fa-rupee-sign"></i>
+              <strong>Fees:</strong> ${college.fees}
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-book"></i>
+              <strong>Courses Offered:</strong> ${college.courses.join(", ")}
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <strong>Address:</strong> ${college.address}
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-globe"></i>
+              <strong>Website:</strong> <a href="${college.website}" target="_blank">${college.website}</a>
+            </div>
+          </div>
+        </td>
+      `;
+
+      // Insert the details row below the clicked row
+      row.parentNode.insertBefore(detailsRow, row.nextSibling);
+    }
+
+    // Add click event listeners to college links
+    document.querySelectorAll('.college-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        // Remove any previously displayed details
+        document.querySelectorAll('.details-row').forEach(row => row.remove());
+
+        // Get the college name and the clicked row
+        const collegeName = link.getAttribute('data-college');
+        const row = link.closest('tr');
+
+        // Show the details for the clicked college
+        showCollegeDetails(collegeName, row);
+      });
+    });
+    function filterColleges() {
+      const input = document.getElementById("collegeSearch");
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById("collegeTable");
+      const tr = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          const textValue = td.textContent || td.innerText;
+          if (textValue.toLowerCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    } // College data (fees, courses, etc.)
+    const collegeData = {
+      "GLS University": {
+        fees: "₹1,40,000 first year fees",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "Netaji Road, Opp. Law Garden, Ellisbridge , Ahmedabad",
+        website: "https://www.glsuniversity.ac.in/"
+      },
+      "St. Xavier's College": {
+        fees: "₹15,510 first year fees",
+        courses: ["B.Com", "BA", "B.Sc"],
+        address: "St. Xavier's Corner, Ahmedabad",
+        website: "https://sxca.edu.in/"
+      },
+    //   "HL College of Commerce": {
+    //     fees: "₹2500",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "HL Campus, Ahmedabad",
+    //     website: "https://hlcollege.edu/"
+    //   },
+      "Ahmedabad University": {
+        fees: "₹4,20,000 first year fees",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "Ahmedabad University Campus, Ahmedabad",
+        website: "https://ahduni.edu.in/"
+      },
+      "Gujarat University": {
+        fees: "₹12,000 first year fees",
+        courses: ["B.Com", "M.Com", "BBA"],
+        address: "Gujarat University Campus, Ahmedabad",
+        website: "https://www.gujaratuniversity.ac.in/"
+      },
+      "LJ University": {
+        fees: "₹1,03,000 first year feess",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "LJ Campus, Ahmedabad",
+        website: "https://ljku.edu.in/"
+      },
+    //   "Navgujarat College": {
+    //     fees: "₹10,500 total fees",
+    //     courses: ["B.Com", "BA", "B.Sc"],
+    //     address: "Navgujarat Campus, Ahmedabad",
+    //     website: "https://ngcca.ngc.edu.in/"
+    //   },
+    //   "Nirma University": {
+    //     fees: "₹7.2 lakh total fees",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "Nirma Campus, Ahmedabad",
+    //     website: "https://nirmauni.ac.in/"
+    //   },
+      "Indus University": {
+        fees: "₹55,000 first year fees",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "Indus Campus, Ahmedabad",
+        website: "https://indusuni.ac.in/"
+      },
+      "Silver Oak University": {
+        fees: "₹47,000 first year fees",
+        courses: ["B.Com(hons)", "BBA", "MBA"],
+        address: "Silver Oak Campus, Ahmedabad",
+        website: "https://silveroakuni.ac.in/"
+      },
+      "Gujarat Vidyapith": {
+        fees: "₹8,000 first year fees",
+        courses: ["B.Com", "BA", "B.Sc"],
+        address: "Gujarat Vidyapith Campus, Ahmedabad",
+        website: "https://www.gujaratvidyapith.org/"
+      },
+    //   "BK School of Business Management": {
+    //     fees: "₹80,000 per year",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "BK Campus, Ahmedabad",
+    //     website: "https://bkschool.org.in/"
+    //   },
+      "Rai University": {
+        fees: "₹66,000",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "Rai Campus, Ahmedabad",
+        website: "https://www.raiuniversity.edu/"
+      },
+    //   "Kadi Sarva Vishwavidyalaya": {
+    //     fees: "₹1.21 to 2 lakh total fees",
+    //     courses: ["B.Com", "BBA", "M.Com"],
+    //     address: "Kadi Campus, Ahmedabad",
+    //     website: "https://ksv.ac.in/"
+    //   },
+      "Shreyarth University": {
+        fees: "₹40,000 per year",
+        courses: ["B.Com(hons=20,000)", "BBA", "MBA"],
+        address: "Shreyarth Campus, Ahmedabad",
+        website: "https://shreyarthuni.ac.in/"
+      },
+      "Sabarmati University": {
+        fees: "₹40,000 first year fees",
+        courses: ["B.Com", "BBA", "M.Com"],
+        address: "Sabarmati Campus, Ahmedabad",
+        website: "https://sabarmatiuniversity.edu.in/"
+      },
+      "Monark University": {
+        fees: "₹60,000 - 70,000 per year",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "Monark Campus, Ahmedabad",
+        website: "https://monarkuni.ac.in/"
+      },
+      "JG University": {
+        fees: "₹60,000 first year fees",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "JG Campus, Ahmedabad",
+        website: "https://jguni.in/"
+      },
+    //   "IBMR Business School": {
+    //     fees: "₹1,17,500 per year",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "IBMR Campus, Ahmedabad",
+    //     website: "https://ibmrbschool.com/"
+    //   },
+    //   "Asia Pacific Institute of Management": {
+    //     fees: "₹35,575 total fees",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "Asia Pacific Campus, Ahmedabad",
+    //     website: "https://apim.ac.in"
+    //   },
+      "khyati foundation": {
+        fees: "₹30,900 first year fees",
+        courses: ["B.Com", "BBA"],
+        address: "Khyati Campus, Ahmedabad",
+        website: "https://www.khyatischoolofcomputerapplication.in/"
+      },
+    //   "Ganpat University": {
+    //     fees: "₹1.6 lakh total fees",
+    //     courses: ["B.Com", "BBA", "MBA"],
+    //     address: "Ganpat Campus, Ahmedabad",
+    //     website: "https://www.ganpatuniversity.ac.in/"
+    //   },
+     
+      "Gujarat Technological University": {
+        fees: "₹25,000 first year fees",
+        courses: ["B.Com", "BBA", "MBA"],
+        address: "GTU Campus, Ahmedabad",
+        website: "https://www.gtu.ac.in/",
+        placement : "1,50,000 - 3,45,000"
+      },
+    //   "L.D. College of Engineering": {
+    //     fees: "₹9,000 per year",
+    //     courses: ["B.Com", "B.Tech"],
+    //     address: "L.D. Campus, Ahmedabad",
+    //     website: "https://ldce.ac.in/"
+    //   },
+    //   "Sardar Patel Institute of Technology": {
+    //     fees: "₹40.8K total fees",
+    //     courses: ["B.Com", "B.Tech"],
+    //     address: "SPIT Campus, Ahmedabad",
+    //     website: "https://spit.ac.in/"
+    //   },
+      
+    //   "P.D. Pandya Mahila Commerce College": {
+    //     fees: "₹15,000 per year",
+    //     courses: ["B.Com", "Bca"],
+    //     address: "Ghodasar, Ahmedabad",
+    //     website: "https://pdpandyamcc.com/"
+    //   },
+    //   "H.L. Institute of Commerce": {
+    //     fees: "₹2500 per year",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "HL Campus,SV Desai Marg, Vasant Vihar, Navrangpura, Ahmedabad",
+    //     website: "https://hlcollege.edu/"
+    //   },
+    //   "k.s School of Business Management": {
+    //     fees: "₹90,500 per year",
+    //     courses: ["B.Com", "MBA"],
+    //     address: "gujrat university, Ahmedabad",
+    //     website: "https://www.ksschool.org.in/"
+    //   },
+    //   "gujarat arts and commerce college": {
+    //     fees: "₹1,200 for male ₹690 for female per year",
+    //     courses: ["B.Com", "BA", "B.Sc"],
+    //     address: "Ellisbridge,Ahmedabad",
+    //     website: "https://gacc.org.in/"
+    //   },
+    //   "gujarat commerce college": {
+    //     fees: "₹3,600 to 1.4 lakh per year",
+    //     courses: ["B.Com", "BA", "B.Sc"],
+    //     address: "opp. Inder Residency Hotel,Ellisbridge,Ahmedabad",
+    //     website: "https://gacc.org.in/"
+    //   },
+      "Kaushalya The Skill University Ahmedabad": {
+        fees: "₹ first year fees ",
+        courses: ["M.Sc", "M.A"],
+        address: " Sushil Nagar Society, Memnagar, Ahmedabad",
+        website: "https://kaushalyaskilluniversity.ac.in/"
+      },
+    //   "S.P. University": {
+    //     fees: "₹ ₹26,000 to ₹84,000 total fees",
+    //     courses: ["B.Com", "B.Tech"],
+    //     address: "SP Campus, Ahmedabad",
+    //     website: "https://spuniversity.edu.in/"
+    //   },
+    //   "Gujarat National Law University": {
+    //     fees: "₹ 6 lakh total fees",
+    //     courses: ["B.Com", "LLB"],
+    //     address: "GNLU Campus, Ahmedabad",
+    //     website: "https://gnlu.ac.in/"
+    //   },
+    //   "Gujarat Forensic Sciences University": {
+    //     fees: "₹ ₹2.67 lakh total fees",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "Ghandinagar, Gujrat",
+    //     website: "https://www.nfsu.ac.in/"
+    //   },
+      
+    //   "swaminarayan university": {
+    //     fees: "₹40,000 per year",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "Swaminarayan Campus, Ahmedabad",
+    //     website: "https://www.swaminarayanuniversity.ac.in/"
+    //   },
+    //   "Shree C.U. Shah College of Commerce": {
+    //     fees: "₹2,620 first year fees ",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "C.U. Shah Campus, Ahmedabad",
+    //     website: "https://cushahcommercecollege.org/"
+    //   },
+     
+    //   "Shree L.J. College of Commerce": {
+    //     fees: "₹1,05,000 to ₹2,92,000 per year",
+    //     courses: ["B.Com", "M.Com"],
+    //     address: "Campus, Vastrapur, Ahmedabad",
+    //     website: "https://ljku.edu.in/program/commerce-new-lj-16"
+    //   },
+    
+      
+      "Indus Institute of Technology & Engineering Ahmedabad": {
+        fees: " ₹40,000 first year fees",
+        courses: ["B.Com", "M.Com"],
+        address: "3C8Q+2X2, Shela, Ahmedabad",
+        website: "https://iite.indusuni.ac.in/ "
+      }
+    };
+
+    // Function to show college details
+    function showCollegeDetails(collegeName, row) {
+      const college = collegeData[collegeName];
+      if (!college) {
+        alert("Details not available for this college.");
+        return;
+      }
+
+      // Create a new row for details
+      const detailsRow = document.createElement('tr');
+      detailsRow.classList.add('details-row');
+      detailsRow.innerHTML = `
+        <td colspan="3">
+          <div class="details-content">
+            <div class="detail-item">
+              <i class="fas fa-rupee-sign"></i>
+              <strong>Fees:</strong> ${college.fees}
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-book"></i>
+              <strong>Courses Offered:</strong> ${college.courses.join(", ")}
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <strong>Address:</strong> ${college.address}
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-globe"></i>
+              <strong>Website:</strong> <a href="${college.website}" target="_blank">${college.website}</a>
+            </div>
+          </div>
+        </td>
+      `;
+
+      // Insert the details row below the clicked row
+      row.parentNode.insertBefore(detailsRow, row.nextSibling);
+    }
+
+    // Add click event listeners to college links
+    document.querySelectorAll('.college-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        // Remove any previously displayed details
+        document.querySelectorAll('.details-row').forEach(row => row.remove());
+
+        // Get the college name and the clicked row
+        const collegeName = link.getAttribute('data-college');
+        const row = link.closest('tr');
+
+        // Show the details for the clicked college
+        showCollegeDetails(collegeName, row);
+      });
+    });
+    function filterColleges() {
+      const input = document.getElementById("collegeSearch");
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById("collegeTable");
+      const tr = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          const textValue = td.textContent || td.innerText;
+          if (textValue.toLowerCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  
+  
+    function filterColleges() {
+      const input = document.getElementById("collegeSearch");
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById("collegeTable");
+      const tr = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          const textValue = td.textContent || td.innerText;
+          if (textValue.toLowerCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

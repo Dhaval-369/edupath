@@ -1,0 +1,89 @@
+/* College Table Styling */
+.college-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensures rounded corners work */
+}
+
+.college-table th, .college-table td {
+  border: 1px solid #ddd;
+  padding: 15px; /* Increased padding for better spacing */
+  text-align: center;
+  font-size: 16px; /* Slightly larger font for readability */
+}
+
+.college-table th {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+  color: white;
+  font-size: 18px;
+  font-weight: 600; /* Bold headers */
+  text-transform: uppercase; /* Uppercase headers for emphasis */
+}
+
+.college-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray for even rows */
+}
+
+.college-table tr:hover {
+  background-color: #e0f7fa; /* Light blue hover effect */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Add a subtle animation to table rows */
+.college-table tr {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.college-table tr:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+/* Add a border-radius to the first and last rows */
+.college-table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.college-table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.college-table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.college-table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+/* Add a hover effect to table headers */
+.college-table th:hover {
+  background: linear-gradient(135deg, #0056b3, #007bff); /* Reverse gradient on hover */
+  transition: background 0.3s ease;
+}
+
+/* Add a subtle animation to the table */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.college-table {
+  animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .college-table {
+    display: block;
+    overflow-x: auto; /* Scrollable table on small screens */
+  }
+
+  .college-table th, .college-table td {
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+}

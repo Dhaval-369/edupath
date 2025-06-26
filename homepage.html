@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Transfer Portal</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+    <header>
+        College Transfer Portal
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="section">
+        <h2>Welcome to the College Transfer Portal</h2>
+        <p>Enter your details and select your desired course to see available colleges.</p>
+    </section>
+
+    <!-- Student Details Form -->
+    <section class="student-form">
+        <h2>Enter Your Details</h2>
+        <form id="studentForm">
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="education">Education Details:</label>
+            <select id="education" required>
+                <option value="">-- Select Education Level --</option>
+                <option value="10th">10th Percentage</option>
+                <option value="12th">12th Percentage</option>
+            </select>
+            <input type="text" id="percentage" placeholder="Enter Percentage %" required>
+
+            <label for="course">Select Your Field:</label>
+            <select id="course" required>
+                <option value="">-- Select Field --</option>
+                <option value="bca">BCA (Bachelor of Computer Applications)</option>
+                <option value="bba">BBA (Bachelor of Business Administration)</option>
+                <option value="bcom">B.Com (Bachelor of Commerce)</option>
+            </select>
+
+            <button type="button" class="btn" onclick="redirectToCoursePage()">Submit & View Colleges</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2025 College Transfer Portal. All rights reserved.
+    </footer>
+
+    <script>
+        function redirectToCoursePage() {
+            var selectedCourse = document.getElementById("course").value;
+            if (selectedCourse) {
+                window.open(selectedCourse + "-colleges.html", "_self");  // **Fix: Now it opens properly**
+            } else {
+                alert("Please select a course!");
+            }
+        }
+    </script>
+
+</body>
+</html>
