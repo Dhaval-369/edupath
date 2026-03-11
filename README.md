@@ -1,2 +1,6 @@
 # edupath
-edupath is collage/uni. finding platform for new student 
+
+this is my first year college project edupath.   
+<br> 
+
+edupath is a platform that help student to finding for college or university.
